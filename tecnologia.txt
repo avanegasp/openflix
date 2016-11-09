@@ -1,0 +1,24 @@
+-React
+- firebase
+-API {
+	youtube
+	vimeo
+	omdb
+}
+
+
+
+
+
+======================= opcional ======================= 
+
+mongo
+Node
+
+
+
+
+
+
+======================= componentes =======================
+

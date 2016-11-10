@@ -6,7 +6,6 @@ import Dropdown from 'react-dropdown'
 import '../css/dropdown.css';
 
 
-
 const options = [
 		  'Usuario', 'Mi lista', 'Cerrar sesión'
 ]
@@ -15,11 +14,11 @@ const defaultOption = options[0]
 class Nav extends Component {
   render() {
     return (
-      <div className="nav">
+      <nav className="navbar">
         <h3>OpenFlix</h3>
         <img src={logo} className="App-logo" alt="logo" />
         <UserNav />
-      </div>
+      </nav>
     );
   }
 }
@@ -31,10 +30,10 @@ class UserNav extends Component {
 	}
 	render() {
 		return (
-			<div>	
+			<span>	
 				<img src={user} alt="img user"/>			
 				<Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />				
-			</div>
+			</span>
 			)
 	}
 }

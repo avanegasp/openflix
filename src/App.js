@@ -9,11 +9,11 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Main />
-        <MovieInfoNav/>
+        {this.props.children}
       </div>
     );
   }
 }
+
 
 export default App;

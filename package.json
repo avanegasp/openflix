@@ -6,13 +6,15 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "firebase": "^3.6.0",
+    "re-base": "^2.3.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-dropdown": "^1.1.0",
+    "react-router": "^3.0.0",
     "react-slick": "^0.14.5",
     "react-tabs": "^0.8.2",
-    "slick-carousel": "^1.6.0",
-    "react-router": "^3.0.0"
+    "slick-carousel": "^1.6.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -32,7 +32,6 @@ const styles = {
 
 class MovieHighlightSingle  extends Component {
   render() {
-    console.log(this.props.movie)
     return (
     	<div style={styles.MovieHighlightSingle}>    	
     		<MovieHighlightInfo name={this.props.movie.name} description={this.props.movie.description}/>

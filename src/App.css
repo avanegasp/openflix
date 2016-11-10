@@ -1,5 +1,6 @@
-
-  text-align: center;
+html {
+  box-sizing: border-box;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -17,54 +18,11 @@
   font-size: large;
 }
 
-.nav {
- border: solid 1px tomato;
- height: 50px;
- background-color: red;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.tabWrapper {
-  border: solid 1px red;
-  display: flex;
-  justify-content: center;
-  flex-direction: column-reverse;
-}
-
-.tabNav {
-
-}
-
-.tabPanel {
-  background-color: blue;
-}
-
-.tabNav li{
-  display: inline-block;
-  margin: 5px;
-  color: red;
-}
-
-.carouselContainer {
-  margin: 20px auto;
-  padding: 40px;
-  width: 80%;
-  color: #333;
-  background: #419be0;
-
-}
-
 .navbar {
   display: flex;
+  width: 90%;
   flex-direction: row;
-  border: solid 1px tomato;
   height: 50px;
-  align-content: space-between;
-  
 }
 
 .navbar img {
@@ -74,6 +32,70 @@
 
 .navbar span {
   display: flex;
-  align-self: flex-end;
-  background-color: red;
+}
+
+.navbar .userNav {
+  justify-content: flex-end;
+}
+
+.navbar > * {
+  flex: 1;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper > * {
+  margin: 0 auto;
+  width: 90%;
+}
+  
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.tabWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.tabPanel {
+  min-height: 50vh;
+  height: 100%;
+}
+
+.tabNav {
+   text-align: center;
+   padding: 0; /*sobreescribre el padding default del ul*/
+   margin: 0; /*sobreescribre el margin default del ul*/
+}
+
+.tabNav li{
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  padding: 0 5px;
+}
+
+.tabNav li:hover {
+  background-color: #1E1E1E;
+}
+
+.tabNav .ReactTabs__Tab--selected {
+  background-color: gray;
+}
+
+
+.carouselContainer {
+  margin: 20px auto;
+  padding: 40px;
+  color: #333;
+}
+
+
+footer {
+  padding:20px 10px;
 }

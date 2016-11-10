@@ -23,10 +23,10 @@ class MovieInfoTabs extends Component {
 		    		<TabPanel className="tabPanel">
 		    			<MovieOverview/>
 		    		</TabPanel>
-		    		<TabPanel>
+		    		<TabPanel className="tabPanel">
 		    			<MovieTrailer/>
 		    		</TabPanel>
-		    		<TabPanel>
+		    		<TabPanel className="tabPanel">
 		    			<MovieDetails/>
 		    		</TabPanel>
 	    		</Tabs>

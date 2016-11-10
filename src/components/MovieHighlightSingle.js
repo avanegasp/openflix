@@ -13,7 +13,6 @@ const styles = {
     alignItems:  'flex-start'   
   },
     MovieHighlightInfo: {
-  	color: 'red',
     width: 250,
     height: 250,    
     marginLeft: 30,

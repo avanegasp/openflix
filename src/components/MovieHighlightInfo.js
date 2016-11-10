@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 const styles = {
   MovieHighlightInfo: {
-  	color: 'red',
     width: 250,
     height: 250,    
     marginLeft: 30,

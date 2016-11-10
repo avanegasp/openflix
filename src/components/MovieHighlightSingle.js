@@ -30,11 +30,13 @@ const styles = {
 }
 
 
+
 class MovieHighlightSingle  extends Component {
   render() {
+    console.log(this.props.movie)
     return (
     	<div style={styles.MovieHighlightSingle}>    	
-    		<MovieHighlightInfo />
+    		<MovieHighlightInfo name={this.props.movie.name} description={this.props.movie.description}/>
     	</div>
     )            
   }
@@ -44,9 +46,9 @@ class MovieHighlightInfo  extends Component {
   render() {
     return (
     	<div style={styles.MovieHighlightInfo}>
-    		<h4 style={styles.movieTitle}>KUNG FURY</h4>
+    		<h4 style={styles.movieTitle}>{this.props.name}</h4>
     		<span style={styles.watchNow}>watch now</span>
-    		<p> In 1985, Kung Fury, the toughest martial artist cop in Miami, goes back in time to kill the worst criminal of all time - kung fuhrer Hitler.</p>
+    		<p>{this.props.description}</p>
     		{/*<Button>Play</Button>*/}
     		{/*<Button>+ My list</Button> */}  		
     	</div>

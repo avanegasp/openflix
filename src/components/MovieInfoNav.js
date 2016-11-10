@@ -23,7 +23,7 @@ class MovieCarousel extends Component {
   render () {
   	  var settings = {
   	  	dots: true,
-  	  	slidesToShow: 5
+  	  	slidesToShow: 5						
   	  }
   	  return (
   	  	<div className='container'>

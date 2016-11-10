@@ -22,3 +22,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.nav {
+  border: solid 1px tomato;
+  height: 50px;
+  background-color: red;
+}
+
+

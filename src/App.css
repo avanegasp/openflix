@@ -22,3 +22,24 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.tabWrapper {
+  border: solid 1px red;
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+
+.tabNav {
+
+}
+
+.tabPanel {
+  background-color: blue;
+}
+
+.tabNav li{
+  display: inline-block;
+  margin: 5px;
+  color: red;
+}

@@ -15,7 +15,7 @@ const defaultOption = options[0]
 class Nav extends Component {
   render() {
     return (
-      <div >
+      <div className="nav">
         <h3>OpenFlix</h3>
         <img src={logo} className="App-logo" alt="logo" />
         <UserNav />

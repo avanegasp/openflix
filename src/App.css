@@ -1,6 +1,5 @@
-.App {
+
   text-align: center;
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -16,6 +15,12 @@
 
 .App-intro {
   font-size: large;
+}
+
+.nav {
+ border: solid 1px tomato;
+ height: 50px;
+ background-color: red;
 }
 
 @keyframes App-logo-spin {
@@ -44,6 +49,15 @@
   color: red;
 }
 
+.carouselContainer {
+  margin: 20px auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  background: #419be0;
+
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -57,6 +71,7 @@
   width: 50px;
   height: 50px;
 }
+
 .navbar span {
   display: flex;
   align-self: flex-end;

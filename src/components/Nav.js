@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import user from '../img/user.png';
@@ -7,11 +8,12 @@ import '../css/dropdown.css';
 
 
 const options = [
-		  'Usuario', 'Mi lista', 'Cerrar sesión'
+          'Usuario', 'Mi lista', 'Cerrar sesión'
 ]
 const defaultOption = options[0]
 
 class Nav extends Component {
+
   render() {
     return (
       <nav className="navbar">
@@ -40,4 +42,4 @@ class UserNav extends Component {
 
 
 
-export default Nav;
+	export default Nav;

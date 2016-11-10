@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import '../App.css'
 
-class MovieInfoNav extends Component {
+class MovieInfoTabs extends Component {
 	handleSelect(index, last) {
     	console.log('Selected tab: ' + index + ', Last tab: ' + last);
   	}
@@ -64,4 +64,4 @@ class MovieDetails extends Component {
 
 Tabs.setUseDefaultStyles(false)
 
-export default MovieInfoNav;
+export default MovieInfoTabs;

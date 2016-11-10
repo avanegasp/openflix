@@ -5,6 +5,7 @@ import Main from './components/Main.js';
 import MovieCarousel from './components/MovieInfoNav.js';
 
 
+
 class App extends Component {
   render() {
     return (

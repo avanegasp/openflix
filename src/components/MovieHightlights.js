@@ -12,6 +12,11 @@ const styles = {
   }
 }
 
+const movieInfo = {
+    name: 'KUNG FURY',
+    description: 'In 1985, Kung Fury, the toughest martial artist cop in Miami, goes back in time to kill the worst criminal of all time - kung fuhrer Hitler.'
+  }
+
 class MovieHightlights extends Component {
   render() {
     var settings = {
@@ -24,19 +29,13 @@ class MovieHightlights extends Component {
     return (
       <Slider {...settings}>
         <div>
-        	<MovieHighlightSingle> 
-    			Hola
-    		</MovieHighlightSingle>
+        	<MovieHighlightSingle movie={movieInfo}/>
     	</div>
         <div>
-        	<MovieHighlightSingle> 
-    			amiguitos
-    		</MovieHighlightSingle>
+        	<MovieHighlightSingle movie={movieInfo} />
     	</div>
         <div>
-        	<MovieHighlightSingle>
-        		locos
-    		</MovieHighlightSingle>
+        	<MovieHighlightSingle movie={movieInfo} />
     	</div>
       </Slider>
     );            

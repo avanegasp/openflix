@@ -6,9 +6,6 @@ import '../App.css';
 import Dropdown from 'react-dropdown'
 import '../css/dropdown.css';
 
-
-
-
 const options = [
           'Usuario', 'Mi lista', 'Cerrar sesión'
 ]

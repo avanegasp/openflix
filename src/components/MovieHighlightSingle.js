@@ -28,6 +28,9 @@ const styles = {
 }
 
 class MovieHighlightSingle  extends Component {
+  componentDidMount(){
+    this.props.getInfo()
+  }
   render() {
     return (
     	<div style={styles.MovieHighlightSingle}>    	

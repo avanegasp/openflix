@@ -23,15 +23,15 @@ class App extends Component {
     }
     this.title = "Hola Mundo!";
   }
-  getMovieInfo(imdbId){
-  	fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
+  getMovieInfo(){
+  	/*fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
     	.then(data => data.json())
     	.then(function(res){
     		console.log(res.movie_results[0].original_title);      
-    })
+    })*/
+    console.log("Que más, ve")
   }
   componentDidMount(){ 	 
-    this.getMovieInfo('tt0063350');
     this.ref = base.syncState('movies', {
       context: this,
       state: 'movies',
@@ -46,7 +46,8 @@ class App extends Component {
       <div className="App">
         <Nav />
         {this.props.children && React.cloneElement(this.props.children, {
-              movies: this.state.movies
+              movies: this.state.movies,
+              getMovieInfo: this.getMovieInfo
 				})}
       </div>
     );

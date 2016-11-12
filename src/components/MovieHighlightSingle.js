@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import movie from '../img/kungfury.jpg';
 
 const styles = {
   MovieHighlightSingle: {

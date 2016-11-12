@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import MovieHighlightSingle from './MovieHighlightSingle.js';
-import MovieHighlightInfo from './MovieHighlightInfo.js';
+/*import MovieHighlightInfo from './MovieHighlightInfo.js';*/
 import Slider from 'react-slick';
 
-const styles = {
+/*const styles = {
   MovieHightlights: {
     width: 800,
     height: 500,
     margin: "0 auto",    
     boxShadow: "3px 3px 1px #888888"
   }
-}
-
-
+}*/
 
 
 class MovieHightlights extends Component {
@@ -49,6 +47,5 @@ class MovieHightlights extends Component {
     );            
   }
 }
-
 
 export default MovieHightlights;

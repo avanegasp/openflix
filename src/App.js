@@ -21,6 +21,7 @@ class App extends Component {
       movies: [],
       loading: true
     }
+    this.title = "Hola Mundo!";
   }
   getMovieInfo(imdbId){
   	fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
@@ -45,7 +46,9 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        {this.props.children}
+        {this.props.children && React.cloneElement(this.props.children, {
+              movieTitle: this.title
+				})}
       </div>
     );
   }

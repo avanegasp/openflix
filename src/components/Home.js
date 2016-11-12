@@ -5,14 +5,13 @@ import MovieInfoTabs from './MovieInfoTabs.js';
 import '../App.css';
 
 class Home extends Component {
-
   render() {
-  	console.log("somos los props" + JSON.stringify(this.props))
+  	//console.log("somos los props" + JSON.stringify(this.props))
     return (
       <div className="wrapper">
-        <MovieHightlights />      
+        <MovieHightlights {...this.props}/>      
         <MovieCarousel />
-        <MovieInfoTabs/>
+        <MovieInfoTabs />
         <footer>
         	OpenFlix 2016
         </footer>     

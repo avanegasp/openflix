@@ -40,8 +40,10 @@ class MovieHightlights extends Component {
       }
 
     ]
+    console.log("somos los props" + JSON.stringify(this.props))
     return (
       <Slider {...settings}>
+      <h1>{this.props.movieTitle}</h1>
         {moviesInfo.map((movie) => <div><MovieHighlightSingle movie={movie}/></div>)}
       </Slider>
     );            

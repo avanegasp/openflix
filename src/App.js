@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Rebase from 're-base';
 import './App.css';
 import Nav from './components/Nav.js';
-import Main from './components/Main.js';
+/*import Main from './components/Main.js';*/
 import apiKey from './config/apikey.js';
 
 
@@ -22,12 +22,24 @@ class App extends Component {
       loading: true
     }
   }
+<<<<<<< HEAD
   componentDidMount(){
     fetch(`https://api.themoviedb.org/3/find/tt0063350?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
     .then(data => data.json())
     .then(function(res){
       console.log(res);
+=======
+
+  getMovieInfo(imdbId){
+  	fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
+    	.then(data => data.json())
+    	.then(function(res){
+    		console.log(res.movie_results[0].original_title);      
+>>>>>>> origin/diego
     })
+  }
+  componentDidMount(){ 	 
+     this.getMovieInfo('tt0063350');
     this.ref = base.syncState('movies', {
       context: this,
       state: 'movies',

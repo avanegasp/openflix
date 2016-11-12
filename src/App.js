@@ -31,7 +31,7 @@ class App extends Component {
     })
   }
   componentDidMount(){ 	 
-     this.getMovieInfo('tt0063350');
+    this.getMovieInfo('tt0063350');
     this.ref = base.syncState('movies', {
       context: this,
       state: 'movies',
@@ -42,12 +42,11 @@ class App extends Component {
     });
   }
   render() {
-  	//console.log("The state " + JSON.stringify(this.state.movies));
     return (
       <div className="App">
         <Nav />
         {this.props.children && React.cloneElement(this.props.children, {
-              movieTitle: this.title
+              movies: this.state.movies
 				})}
       </div>
     );

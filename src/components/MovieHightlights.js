@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MovieHighlightSingle from './MovieHighlightSingle.js';
-/*import MovieHighlightInfo from './MovieHighlightInfo.js';*/
 import Slider from 'react-slick';
 
 /*const styles = {
@@ -38,14 +37,13 @@ class MovieHightlights extends Component {
         name: 'BRAIN DEAD',
         description: 'In a showdown of man vs. machine, Martin plunges into a chaotic nightmare trying to save his mind from the megalomaniacal corporation.'
       }
-
     ]
-    console.log("somos los props" + JSON.stringify(this.props))
+    var moviesToMap = this.props.movies
     return (
       <Slider {...settings}>
       <h1>{this.props.movieTitle}</h1>
-        {moviesInfo.map((movie) => <div><MovieHighlightSingle movie={movie}/></div>)}
-      </Slider>
+       {moviesToMap.map((movie) => <div><MovieHighlightSingle movie={movie}/></div>)}
+     </Slider>
     );            
   }
 }

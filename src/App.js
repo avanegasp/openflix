@@ -22,20 +22,11 @@ class App extends Component {
       loading: true
     }
   }
-<<<<<<< HEAD
-  componentDidMount(){
-    fetch(`https://api.themoviedb.org/3/find/tt0063350?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
-    .then(data => data.json())
-    .then(function(res){
-      console.log(res);
-=======
-
   getMovieInfo(imdbId){
   	fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
     	.then(data => data.json())
     	.then(function(res){
     		console.log(res.movie_results[0].original_title);      
->>>>>>> origin/diego
     })
   }
   componentDidMount(){ 	 

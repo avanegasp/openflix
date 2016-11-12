@@ -23,7 +23,6 @@ class App extends Component {
     }
   }
   componentDidMount(){
-
     fetch(`https://api.themoviedb.org/3/find/tt0063350?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
     .then(data => data.json())
     .then(function(res){
@@ -39,7 +38,7 @@ class App extends Component {
     });
   }
   render() {
-  	console.log("The state " + JSON.stringify(this.state.movies));
+  	//console.log("The state " + JSON.stringify(this.state.movies));
     return (
       <div className="App">
         <Nav />

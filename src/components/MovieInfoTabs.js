@@ -19,7 +19,6 @@ class MovieInfoTabs extends Component {
 			    		<Tab>Trailer</Tab>
 			    		<Tab>Details</Tab>
 		    		</TabList>
-
 		    		<TabPanel className="tabPanel">
 		    			<MovieOverview/>
 		    		</TabPanel>

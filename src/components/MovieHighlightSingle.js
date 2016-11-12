@@ -28,8 +28,6 @@ const styles = {
   }
 }
 
-
-
 class MovieHighlightSingle  extends Component {
   render() {
     return (

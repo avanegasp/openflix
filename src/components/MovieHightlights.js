@@ -13,8 +13,6 @@ const styles = {
 }
 
 
-
-
 class MovieHightlights extends Component {
   render() {
     var settings = {

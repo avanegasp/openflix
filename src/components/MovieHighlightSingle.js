@@ -8,7 +8,7 @@ const styles = {
     display: 'flex' 
   },
   moviePoster: {
-  	width: 800,
+    width: 800,
     alignItems:  'flex-start'   
   },
     MovieHighlightInfo: {
@@ -19,41 +19,63 @@ const styles = {
     
   },
   movieTitle: {
-  	marginBottom: 2
+    marginBottom: 2
   },
   watchNow: {
-  	color: '#BDBDBD',
-  	fontSize: 14,  	
+    color: '#BDBDBD',
+    fontSize: 14,   
   }
 }
 
 class MovieHighlightSingle  extends Component {
-  componentDidMount(){
+  constructor(props){
+    super(props)
+    this.state = {
+      title:"",
+      releaseDate:"",
+      overview:""
+    }
+  }
+  componentDidMount(){ 
     this.props.consoleMovieInfo(this.props.movie.id)
-    console.log(title)
+    .then(res => {
+        let movieTitle=res.movie_results[0].title;   
+        let movieOverView=res.movie_results[0].overview;
+        let movieReleaseDate=res.movie_results[0].release_date;
+        console.log(movieTitle, movieOverView, movieReleaseDate);
+        this.setState({
+            title:movieTitle,
+            overview: movieOverView,
+            releaseDate: movieReleaseDate
+        })
+    })
   }
   render() {
     return (
-    	<div style={styles.MovieHighlightSingle}>    	
-    		<MovieHighlightInfo id={this.props.movie.id} video={this.props.movie.video}/>
-    	</div>
+      <div style={styles.MovieHighlightSingle}>     
+        <div style={styles.MovieHighlightInfo}>
+          <h4 style={styles.movieTitle}>{this.state.title}</h4>
+          <span style={styles.watchNow}>watch now</span>
+          <p>{this.state.overview}</p>
+          {/*<Button>Play</Button>*/}
+          {/*<Button>+ My list</Button> */}     
+        </div>
+      </div>
     )            
   }
 }
-
+/*
 class MovieHighlightInfo  extends Component {
   render() {
     return (
-    	<div style={styles.MovieHighlightInfo}>
-    		<h4 style={styles.movieTitle}>{this.props.id}</h4>
-    		<span style={styles.watchNow}>watch now</span>
-    		<p>{this.props.video}</p>
-    		{/*<Button>Play</Button>*/}
-    		{/*<Button>+ My list</Button> */}  		
-    	</div>
-    )            
+      <div style={styles.MovieHighlightInfo}>
+        <h4 style={styles.movieTitle}>{this.props.id}</h4>
+        <span style={styles.watchNow}>watch now</span>
+        <p>{this.props.video} {this.props.title}</p>
+      </div>
+    )
   }
 }
-
+*/
 
 export default MovieHighlightSingle;

@@ -22,6 +22,7 @@ class MovieHightlights extends Component {
       slidesToShow: 1,
       slidesToScroll: 1
     }
+    console.log(this.props)
     var moviesToMap = this.props.movies
     return (
       <Slider {...settings}>

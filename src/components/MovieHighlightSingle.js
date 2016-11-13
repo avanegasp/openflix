@@ -29,7 +29,8 @@ const styles = {
 
 class MovieHighlightSingle  extends Component {
   componentDidMount(){
-    this.props.getInfo()
+    this.props.consoleMovieInfo(this.props.movie.id)
+    console.log(title)
   }
   render() {
     return (

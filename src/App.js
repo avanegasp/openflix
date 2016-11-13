@@ -23,13 +23,15 @@ class App extends Component {
     }
     this.title = "Hola Mundo!";
   }
-  getMovieInfo(){
-  	/*fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
+  getMovieInfo(imdbId){
+  	fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
     	.then(data => data.json())
     	.then(function(res){
-    		console.log(res.movie_results[0].original_title);      
-    })*/
-    console.log("Que más, ve")
+        let movieTitle=res.movie_results[0].title;   
+        let movieOverView=res.movie_results[0].overview;
+        let movieReleaseDate=res.movie_results[0].release_date;
+        this.title=movieTitle;
+    })
   }
   componentDidMount(){ 	 
     this.ref = base.syncState('movies', {

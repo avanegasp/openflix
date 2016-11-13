@@ -13,9 +13,7 @@ import Slider from 'react-slick';
 }*/
 
 class MovieHightlights extends Component {
-  componentDidMount(){
-    this.props.getMovieInfo()
-  }
+  
   render() {
     var settings = {
       dots: true,
@@ -28,7 +26,7 @@ class MovieHightlights extends Component {
     return (
       <Slider {...settings}>
       <h1>{this.props.movieTitle}</h1>
-       {moviesToMap.map((movie) => <div><MovieHighlightSingle movie={movie}/></div>)}
+       {moviesToMap.map((movie) => <div><MovieHighlightSingle consoleMovieInfo={this.props.getMovieInfo.bind(this)} movie={movie}/></div>)}
      </Slider>
     );            
   }

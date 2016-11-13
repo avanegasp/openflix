@@ -43,4 +43,4 @@ class UserNav extends Component {
 
 
 
-	export default Nav;
+export default Nav;

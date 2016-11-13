@@ -10,7 +10,7 @@ class MovieInfoTabs extends Component {
     	return (
     		<div>
 	    		<Tabs 
-	    		className ="tabWrapper"
+	    		className="tabWrapper"
 	    		onSelect={this.handleSelect}
 	    		selectedIndex={0}
 	    		>
@@ -19,7 +19,6 @@ class MovieInfoTabs extends Component {
 			    		<Tab>Trailer</Tab>
 			    		<Tab>Details</Tab>
 		    		</TabList>
-
 		    		<TabPanel className="tabPanel">
 		    			<MovieOverview/>
 		    		</TabPanel>

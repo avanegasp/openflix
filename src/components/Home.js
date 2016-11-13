@@ -8,9 +8,9 @@ class Home extends Component {
   render() {
     return (
       <div className="wrapper">
-        <MovieHightlights />      
+        <MovieHightlights {...this.props}/>      
         <MovieCarousel />
-        <MovieInfoTabs/>
+        <MovieInfoTabs />
         <footer>
         	OpenFlix 2016
         </footer>     

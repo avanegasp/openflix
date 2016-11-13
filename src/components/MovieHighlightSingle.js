@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import movie from '../img/kungfury.jpg';
 
 const styles = {
   MovieHighlightSingle: {
@@ -29,10 +28,13 @@ const styles = {
 }
 
 class MovieHighlightSingle  extends Component {
+  componentDidMount(){
+    this.props.getInfo()
+  }
   render() {
     return (
     	<div style={styles.MovieHighlightSingle}>    	
-    		<MovieHighlightInfo name={this.props.movie.name} description={this.props.movie.description}/>
+    		<MovieHighlightInfo id={this.props.movie.id} video={this.props.movie.video}/>
     	</div>
     )            
   }
@@ -42,9 +44,9 @@ class MovieHighlightInfo  extends Component {
   render() {
     return (
     	<div style={styles.MovieHighlightInfo}>
-    		<h4 style={styles.movieTitle}>{this.props.name}</h4>
+    		<h4 style={styles.movieTitle}>{this.props.id}</h4>
     		<span style={styles.watchNow}>watch now</span>
-    		<p>{this.props.description}</p>
+    		<p>{this.props.video}</p>
     		{/*<Button>Play</Button>*/}
     		{/*<Button>+ My list</Button> */}  		
     	</div>

@@ -11,10 +11,10 @@ class MovieCarousel extends Component {
       return (
         <div className='carouselContainer'>
           <Slider {...settings}>
-            <div><img src='http://placekitten.com/g/400/200' /></div>
-            <div><img src='http://placekitten.com/g/400/200' /></div>
-            <div><img src='http://placekitten.com/g/400/200' /></div>
-            <div><img src='http://placekitten.com/g/400/200' /></div>
+            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
+            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
+            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
+            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
           </Slider>
         </div>
     )

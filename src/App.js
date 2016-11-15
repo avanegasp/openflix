@@ -25,12 +25,6 @@ class App extends Component {
   getMovieInfo(imdbId){
   	return fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
     	.then(data => data.json())
-    	/*.then(function(res){
-        let movieTitle=res.movie_results[0].title;   
-        let movieOverView=res.movie_results[0].overview;
-        let movieReleaseDate=res.movie_results[0].release_date;
-        console.log(movieTitle, movieOverView, movieReleaseDate);
-    })*/
   }
   componentDidMount(){ 	 
     this.ref = base.syncState('movies', {

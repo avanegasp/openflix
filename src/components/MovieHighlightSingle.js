@@ -32,26 +32,33 @@ class MovieHighlightSingle  extends Component {
     this.state = {
       title:"",
       releaseDate:"",
-      overview:""
+      overview:"",
+      backdropImage:""
     }
   }
   componentDidMount(){ 
     this.props.consoleMovieInfo(this.props.movie.id)
     .then(res => {
-        let movieTitle=res.movie_results[0].title;   
-        let movieOverView=res.movie_results[0].overview;
-        let movieReleaseDate=res.movie_results[0].release_date;
-        //console.log(res.movie_results[0].backdrop_path);
+        let movieTitle = res.movie_results[0].title;   
+        let movieOverView = res.movie_results[0].overview;
+        let movieReleaseDate = res.movie_results[0].release_date;
+        let movieBackdrop = res.movie_results[0].backdrop_path;
         this.setState({
             title:movieTitle,
             overview: movieOverView,
-            releaseDate: movieReleaseDate
+            releaseDate: movieReleaseDate,
+            backdropImage: movieBackdrop
         })
     })
   }
   render() {
+    var style = {
+      background:{
+        backgroundImage:`url(http://image.tmdb.org/t/p/w1280/${this.state.backdropImage})`
+      }
+    }
     return (
-      <div style={styles.MovieHighlightSingle}>     
+      <div style={style.background}>     
         <div style={styles.MovieHighlightInfo}>
           <h4 style={styles.movieTitle}>{this.state.title}</h4>
           <span style={styles.watchNow}>watch now</span>

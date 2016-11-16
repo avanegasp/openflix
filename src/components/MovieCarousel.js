@@ -6,15 +6,17 @@ class MovieCarousel extends Component {
   render () {
       var settings = {
         dots: true,
-        slidesToShow: 3           
+        slidesToShow: 5           
       }
       return (
         <div className='carouselContainer'>
           <Slider {...settings}>
-            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
-            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
-            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
-            <div><img src='http://placekitten.com/g/400/200' alt="cat"/></div>
+          
+            <div><img src='http://pepecine.com/img/peliculas-comics.jpg' alt="cat"/></div>
+            <div><img src='http://pepecine.com/img/peliculas-comics.jpg' alt="cat"/></div>
+            <div><img src='http://pepecine.com/img/peliculas-comics.jpg' alt="cat"/></div>
+            <div><img src='http://pepecine.com/img/peliculas-comics.jpg' alt="cat"/></div>
+            
           </Slider>
         </div>
     )

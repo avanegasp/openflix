@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import logo1 from '../img/logo1.png';
 import user from '../img/user.png';
 import '../App.css';
 import Dropdown from 'react-dropdown'
@@ -17,11 +17,11 @@ class Nav extends Component {
     return (
       <nav className="navbar">
         <span>
-        	<img src={logo} className="App-logo" alt="logo" />
-        	<h3>OpenFlix</h3>
+        	<img src={logo1} className="App-logo" alt="logo"/>
         </span>
         <UserNav/>
       </nav>
+      
     );
   }
 }
@@ -34,9 +34,9 @@ class UserNav extends Component {
 	render() {
 		return (
 			<span className="userNav">	
-				<img src={user} alt="img user"/>			
-				<Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />				
-			</span>
+				<img src={user} alt="img user"/>    			
+				<Dropdown className="userDrop" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />				
+      </span>
 			)
 	}
 }

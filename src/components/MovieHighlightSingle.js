@@ -42,7 +42,7 @@ class MovieHighlightSingle  extends Component {
         let movieTitle=res.movie_results[0].title;   
         let movieOverView=res.movie_results[0].overview;
         let movieReleaseDate=res.movie_results[0].release_date;
-        console.log(movieTitle, movieOverView, movieReleaseDate);
+        //console.log(res.movie_results[0].backdrop_path);
         this.setState({
             title:movieTitle,
             overview: movieOverView,

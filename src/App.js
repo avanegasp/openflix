@@ -3,7 +3,7 @@ import Rebase from 're-base';
 import './App.css';
 import Nav from './components/Nav.js';
 /*import Main from './components/Main.js';*/
-import apiKey from './config/apikey.js';
+
 
 
 var base = Rebase.createClass({
@@ -22,10 +22,6 @@ class App extends Component {
       loading: true
     }
   }
-  getMovieInfo(imdbId){
-  	return fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
-    	.then(data => data.json())
-  }
   componentDidMount(){ 	 
     this.ref = base.syncState('movies', {
       context: this,
@@ -41,8 +37,7 @@ class App extends Component {
       <div className="App">
         <Nav />
         {this.props.children && React.cloneElement(this.props.children, {
-              movies: this.state.movies,
-              getMovieInfo: this.getMovieInfo
+              movies: this.state.movies
 				})}
       </div>
     );

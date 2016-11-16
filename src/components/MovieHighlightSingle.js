@@ -16,7 +16,6 @@ const styles = {
     height: 250,    
     marginLeft: 30,
     fontFamily: 'Roboto, sans-serif'   
-    
   },
   movieTitle: {
     marginBottom: 2

@@ -54,7 +54,7 @@ class MovieHighlightSingle  extends Component {
   render() {
     var style = {
       background:{
-        backgroundImage:`url(http://image.tmdb.org/t/p/w1280/${this.state.backdropImage})`
+        backgroundImage:`url(http://image.tmdb.org/t/p/w1000/${this.state.backdropImage})`
       }
     }
     return (

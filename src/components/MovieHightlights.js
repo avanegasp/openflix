@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieHighlightSingle from './MovieHighlightSingle.js';
 import Slider from 'react-slick';
+import { getMovieInfo } from '../utils/getMovieInfo'
 
 /*const styles = {
   MovieHightlights: {
@@ -13,7 +14,6 @@ import Slider from 'react-slick';
 }*/
 
 class MovieHightlights extends Component {
-  
   render() {
     var settings = {
       dots: true,
@@ -22,12 +22,11 @@ class MovieHightlights extends Component {
       slidesToShow: 1,
       slidesToScroll: 1
     }
-    console.log(this.props)
     var moviesToMap = this.props.movies
     return (
       <Slider {...settings}>
       <h1>{this.props.movieTitle}</h1>
-       {moviesToMap.map((movie) => <div><MovieHighlightSingle consoleMovieInfo={this.props.getMovieInfo.bind(this)} movie={movie}/></div>)}
+       {moviesToMap.map((movie) => <div><MovieHighlightSingle consoleMovieInfo={getMovieInfo.bind(this)} movie={movie}/></div>)}
      </Slider>
     );            
   }

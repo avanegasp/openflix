@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick'
-import MovieInfoTabs from './MovieInfoTabs'
+//import MovieInfoTabs from './MovieInfoTabs'
+import { getMovieInfo } from '../utils/getMovieInfo'
 
 const styles = {
  outer: {
@@ -37,26 +38,31 @@ hover: {
 
 class MovieCarousel extends Component {
   constructor(){
-        super()
-        this.state = {
-            childVisible: false
-        }
+    super()
+    this.state = {
+        childVisible: false
+    }
   }
   render () {
       var settings = {
         arrows: true,
         dots:true,
-        slidesToShow: 5
-      }        
+        slidesToShow: 3
+      }
+      var moviesToMap = this.props.movies       
+
       return (
         <div className='carouselContainer'>
-          <Slider {...settings}>
-            <div onClick={this.onClick.bind(this)}><MovieCard/></div>
-            <div onClick={this.onClick.bind(this)}><MovieCard/></div>
-            <div onClick={this.onClick.bind(this)}><MovieCard/></div>
-            <div onClick={this.onClick.bind(this)}><MovieCard/></div>
-            <div onClick={this.onClick.bind(this)}><MovieCard/></div>
-          </Slider>
+          {
+            moviesToMap.length > 0 ? 
+              <Slider {...settings}>
+                {moviesToMap.map((movie, index) => (
+                  <div data-index={index} key={index}>
+                    <MovieCard onClick={this.onClick} getMovieInfo={getMovieInfo} movie={movie}/>
+                  </div>
+                ))}
+              </Slider> : null 
+          }
           {
             this.state.childVisible
               ? <TabsCont />
@@ -71,21 +77,25 @@ class MovieCarousel extends Component {
 }
 
 class MovieCard extends Component {
-  constructor(){
-    super()
+
+  constructor(props){
+    super(props)
     this.state = {
-      hover:false
+      alt:"",
+      image:"hey"
     }
   }
-  onMouseEnterHandle(){
-   this.setState({
-      hover:true
-   })
-  }
-   onMouseLeaveHandler(){
-   this.setState({
-      hover:false
-   })
+  componentDidMount(){
+    this.props.getMovieInfo(this.props.movie.id)
+    .then(res => {
+        let movieImagePath = res.movie_results[0].backdrop_path;
+        let movieTitle =  res.movie_results[0].title
+        this.setState({
+            alt:movieTitle,
+            image:movieImagePath
+        }) 
+    })
+
   }
   render(){
   var inner = styles.normal;
@@ -93,7 +103,9 @@ class MovieCard extends Component {
     inner = styles.hover;
   }
     return (
-      <div><img src='http://placekitten.com/g/300/150' alt="cat"/></div>
+
+      <div><img src={`http://image.tmdb.org/t/p/w300/${this.state.image}`} alt={this.state.alt}/></div>
+
     )
   }
 }
@@ -101,7 +113,9 @@ class MovieCard extends Component {
 class TabsCont extends Component {
   render(){
     return(
-      <MovieInfoTabs/>
+      <div>
+        Hola
+      </div>
     )
   }
 }

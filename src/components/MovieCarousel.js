@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick'
-//import MovieInfoTabs from './MovieInfoTabs'
+import MovieInfoTabs from './MovieInfoTabs'
 import { getMovieInfo } from '../utils/getMovieInfo'
 
 
@@ -25,8 +25,8 @@ class MovieCarousel extends Component {
             moviesToMap.length > 0 ? 
               <Slider {...settings}>
                 {moviesToMap.map((movie, index) => (
-                  <div data-index={index} key={index}>
-                    <MovieCard onClick={this.onClick} getMovieInfo={getMovieInfo} movie={movie}/>
+                  <div onClick={this.onClick.bind(this)} data-index={index} key={index}>
+                    <MovieCard getMovieInfo={getMovieInfo} movie={movie}/>
                   </div>
                 ))}
               </Slider> : null 
@@ -74,7 +74,7 @@ class TabsCont extends Component {
   render(){
     return(
       <div>
-        Hola
+        <MovieInfoTabs/>
       </div>
     )
   }

@@ -4,8 +4,6 @@ import './App.css';
 import Nav from './components/Nav.js';
 /*import Main from './components/Main.js';*/
 
-
-
 var base = Rebase.createClass({
     apiKey: "AIzaSyCVHJ-fVIeo1ObZCkdYFy3348BCdmkg-eg",
     authDomain: "openflix-1c61f.firebaseapp.com",

@@ -19,7 +19,6 @@ const styles = {
     color: '#FFFFFF',
     backgroundColor: 'rgba(24, 36, 44, 0.7)',
     padding: '10px',
-
   },
   movieTitle: {
     marginBottom: 2

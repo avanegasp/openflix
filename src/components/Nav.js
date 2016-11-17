@@ -8,10 +8,7 @@ import '../css/dropdown.css';
 
 
 
-
-
 class Nav extends Component {
-
   render() {
     return (
       <nav className="navbar">
@@ -25,10 +22,12 @@ class Nav extends Component {
   }
 }
 
-
 class UserNav extends Component {
-	_onSelect(){
-		console.log('hola')
+	_onSelect(tabSelected){
+		console.log('hola',tabSelected)
+    if (tabSelected.value === "Cerrar sesión") {
+      this.props.logout()
+    }
 	}
 	render() {
     const options = [
@@ -37,10 +36,14 @@ class UserNav extends Component {
 		return (
 			<span className="userNav">	
 				<img src={this.props.imgUrl} alt="img user"/>    			
-				<Dropdown options={options} onChange={this._onSelect} value={this.props.name} placeholder="Select an option" />				
+				<Dropdown options={options} onChange={this._onSelect.bind(this)} value={this.props.name} placeholder="Select an option"/>				
       </span>
-			)
+    )
 	}
+}
+
+UserNav.contextTypes = {
+  router: React.PropTypes.object
 }
 
 

@@ -7,10 +7,8 @@ import Dropdown from 'react-dropdown'
 import '../css/dropdown.css';
 
 
-const options = [
-          'Usuario', 'Mi lista', 'Cerrar sesión'
-]
-const defaultOption = options[0]
+
+
 
 class Nav extends Component {
 
@@ -20,7 +18,7 @@ class Nav extends Component {
         <span>
         	<img src={logo1} className="App-logo" alt="logo"/>  
         </span>
-        <UserNav/>
+        <UserNav {...this.props}/>
       </nav>
       
     );
@@ -33,10 +31,13 @@ class UserNav extends Component {
 		console.log('hola')
 	}
 	render() {
+    const options = [
+      this.props.name, 'Mi lista', 'Cerrar sesión'
+    ]
 		return (
 			<span className="userNav">	
-				<img src={user} alt="img user"/>    			
-				<Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />				
+				<img src={this.props.imgUrl} alt="img user"/>    			
+				<Dropdown options={options} onChange={this._onSelect} value={this.props.name} placeholder="Select an option" />				
       </span>
 			)
 	}

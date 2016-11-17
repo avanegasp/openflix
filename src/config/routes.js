@@ -4,6 +4,7 @@ import App from '../App';
 import Main from '../components/Main';
 import Home from '../components/Home';
 import UserMovieList from '../components/UserMovieList';
+import MoviePlayer from '../components/MoviePlayer';
 
 const routes = (
 	<Router history={hashHistory}>
@@ -11,6 +12,7 @@ const routes = (
 			<IndexRoute component={Main}/>
 			<Route path='/home' component={Home}/>
 			<Route path='/userlist'component={UserMovieList}/>
+			<Route path='/moviePlayer' component={MoviePlayer}/>
 		</Route>
 	</Router>
 )

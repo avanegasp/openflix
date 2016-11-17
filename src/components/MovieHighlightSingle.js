@@ -15,15 +15,17 @@ const styles = {
     width: 250,
     height: 250,    
     marginLeft: 30,
-    fontFamily: 'Roboto, sans-serif'   
+    fontFamily: 'Roboto, sans-serif',
+    background: 'red'   
   },
   movieTitle: {
     marginBottom: 2
   },
   watchNow: {
-    color: '#BDBDBD',
-    fontSize: 14,   
-  }
+    color: '#FF931E',
+    fontSize: 14,
+    textDecoration: 'none'   
+  } 
 }
 
 class MovieHighlightSingle  extends Component {
@@ -54,7 +56,7 @@ class MovieHighlightSingle  extends Component {
   render() {
     var style = {
       background:{
-        backgroundImage:`url(http://image.tmdb.org/t/p/w1280/${this.state.backdropImage})`
+        backgroundImage:`url(http://image.tmdb.org/t/p/w1000/${this.state.backdropImage})`
       }
     }
     return (

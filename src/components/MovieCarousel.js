@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick'
-//import MovieInfoTabs from './MovieInfoTabs'
+import MovieInfoTabs from './MovieInfoTabs'
 import { getMovieInfo } from '../utils/getMovieInfo'
 
 const styles = {
@@ -21,7 +21,7 @@ const styles = {
     top: 0,
     bottom: 0,
     left: 10,
-    right: 10    
+    right: 10   
   },
   hover: { 
     height: '229px',
@@ -41,6 +41,7 @@ class MovieCarousel extends Component {
     super()
     this.state = {
         childVisible: false,
+        currentMovieDetails: '',
         hover: false             
     }
   }
@@ -72,23 +73,26 @@ class MovieCarousel extends Component {
             moviesToMap.length > 0 ? 
               <Slider {...settings}>
                 {moviesToMap.map((movie, index) => (
-                  <div data-index={index} key={index}>
-                    <MovieCard onClick={this.onClick} getMovieInfo={getMovieInfo} movie={movie} />
+                  <div onClick={this.onClick.bind(this, movie.id)} data-index={index} key={index}>
+                    <MovieCard getMovieInfo={getMovieInfo} movie={movie}/>
                   </div>
                 ))}
               </Slider> : null 
           }
           {
             this.state.childVisible
-              ? <TabsCont />
+              ? <TabsCont thisMovie={this.state.currentMovieDetails}/>
               : null
           } 
 
         </div>
       )
   }
-  onClick() {
-    this.setState({childVisible: true});
+  onClick(movieId) {    
+    this.setState({
+      childVisible: true,
+      currentMovieDetails: movieId
+    });
   }
 }
 
@@ -138,10 +142,10 @@ class MovieCard extends Component {
 }
 
 class TabsCont extends Component {
-  render(){
+  render(){    
     return(
       <div>
-        Hola
+        <MovieInfoTabs {...this.props}/>
       </div>
     )
   }

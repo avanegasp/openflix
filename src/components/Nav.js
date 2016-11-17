@@ -20,7 +20,7 @@ class Nav extends Component {
         <span>
         	<img src={logo1} className="App-logo" alt="logo"/>  
         </span>
-        <UserNav/>
+        {this.props.userNav ? <UserNav/> : null}
       </nav>
       
     );

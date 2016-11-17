@@ -56,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+        {this.props.location.pathname === `/moviePlayer/${this.props.params.movieId}` ? null : <Nav userNav={this.state.authenticated}/>}
         {this.props.children && React.cloneElement(this.props.children, {
           movies: this.state.movies
         })}

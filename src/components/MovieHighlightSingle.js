@@ -56,6 +56,9 @@ class MovieHighlightSingle  extends Component {
         })
     })
   }
+  playMovie(movieId){
+      this.context.router.push('/moviePlayer/')
+  }
   render() {
     var style = {
       background:{
@@ -68,13 +71,18 @@ class MovieHighlightSingle  extends Component {
           <h4 style={styles.movieTitle}>{this.state.title}</h4>
           <span style={styles.watchNow}>watch now</span>
           <p>{this.state.overview}</p>
-          {/*<Button>Play</Button>*/}
+          <button onClick={this.playMovie.bind(this)}>Play</button>
           {/*<Button>+ My list</Button> */}     
         </div>
       </div>
     )            
   }
 }
+
+MovieHighlightSingle.contextTypes={
+  router:React.PropTypes.object
+} 
+
 /*
 class MovieHighlightInfo  extends Component {
   render() {

@@ -10,7 +10,6 @@ class Home extends Component {
       <div className="wrapper">
         <MovieHightlights {...this.props} />      
         <MovieCarousel {...this.props} />
-        {/*<MovieInfoTabs />*/}
         <footer>
         	OpenFlix 2016
         </footer>     

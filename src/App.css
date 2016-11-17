@@ -3,13 +3,9 @@ html {
 }
 .App{
   background-color: #333333;
-}
+} 
 
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
   background-color: #222;
@@ -23,19 +19,16 @@ html {
 }
 
 .navbar {
-  background-color: rgba(143,76,0,0.5);
+  background-color: rgba(15, 30, 38, 0.8);
   display: flex;
   width: 90%;
-  position: fixed;
-  left: 70px;
-  top: 20px;
+  position: fixed;  
   z-index: 100;
- 
+  width: 100%;
   
 }
 
 .navbar img {
-  width: 50px;
   height: 60px;
 }
 
@@ -59,9 +52,35 @@ margin-left: 30px;
   flex: 1;
 }
 
+
+.buttonIngresa button {
+  width: 200px;
+  height: 50px;
+  font-size: 35px;
+  font-family: Georgia, serif;
+  border-radius: 10px;
+  margin-top: 700px;
+  margin-left: 200px;
+  background-color: #f2680c;  
+}
+.buttonIngresa img{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  
+}
 .wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.slick-list{
+  background-size: contain;
+  margin-top: 100px;
+
 }
 
 .wrapper > * {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo1 from '../img/logo1.png';
 import user from '../img/user.png';
+import logoaf from '../img/logoaf.png';
 import '../App.css';
 import Dropdown from 'react-dropdown'
 import '../css/dropdown.css';
@@ -17,7 +18,7 @@ class Nav extends Component {
     return (
       <nav className="navbar">
         <span>
-        	<img src={logo1} className="App-logo" alt="logo"/>
+        	<img src={logo1} className="App-logo" alt="logo"/>  
         </span>
         <UserNav/>
       </nav>
@@ -35,7 +36,7 @@ class UserNav extends Component {
 		return (
 			<span className="userNav">	
 				<img src={user} alt="img user"/>    			
-				<Dropdown className="userDrop" options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />				
+				<Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />				
       </span>
 			)
 	}

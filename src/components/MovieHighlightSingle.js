@@ -8,7 +8,7 @@ const styles = {
     display: 'flex' 
   },
   moviePoster: {
-    width: 800,
+    width: 800,    
     alignItems:  'flex-start'   
   },
     MovieHighlightInfo: {
@@ -16,7 +16,10 @@ const styles = {
     height: 250,    
     marginLeft: 30,
     fontFamily: 'Roboto, sans-serif',
-    background: 'red'   
+    color: '#FFFFFF',
+    backgroundColor: 'rgba(24, 36, 44, 0.7)',
+    padding: '10px',
+
   },
   movieTitle: {
     marginBottom: 2

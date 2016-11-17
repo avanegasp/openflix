@@ -3,6 +3,9 @@ import ReactPlayer from 'react-player';
 import '../App.css';
 
 class MoviePlayer extends Component {
+	componentDidMount() {
+		
+	}
 	render(){
 		return (
 			<div className="playerWrapper">

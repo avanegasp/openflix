@@ -25,7 +25,9 @@ class MovieHightlights extends Component {
     return (
       <Slider {...settings}>
       <h1>{this.props.movieTitle}</h1>
-       {moviesToMap.map((movie) => <div key={movie.id}><MovieHighlightSingle consoleMovieInfo={getMovieInfo.bind(this)} movie={movie}/></div>)}
+       {moviesToMap.map((movie) => <div key={movie.id}>
+          <MovieHighlightSingle consoleMovieInfo={getMovieInfo.bind(this)} movie={movie}/>
+        </div>)}
      </Slider>
     );            
   }

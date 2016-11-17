@@ -50,8 +50,14 @@ class MovieCarousel extends Component {
         childVisible: false,
         currentMovieDetails: ''                   
     }
+  } 
+  onClick(movieId) { 
+    console.log("hola comoestas")   
+    this.setState({
+      childVisible: true,
+      currentMovieDetails: movieId
+    });
   }
- 
   render () {
       var settings = {
         arrows: true,
@@ -81,12 +87,6 @@ class MovieCarousel extends Component {
 
         </div>
       )
-  }
-  onClick(movieId) {    
-    this.setState({
-      childVisible: true,
-      currentMovieDetails: movieId
-    });
   }
 }
 

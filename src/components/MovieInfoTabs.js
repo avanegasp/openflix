@@ -16,7 +16,7 @@ class MovieInfoTabs extends Component {
 	handleSelect(index, last) {
     	console.log('Selected tab: ' + index + ', Last tab: ' + last);
   	}
-  	conponentDidMount(){
+  	componentDidMount(){
   		console.log(this.props)
   	}
   	render() {  		

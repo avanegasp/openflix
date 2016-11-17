@@ -13,13 +13,25 @@ const styles = {
 }
 
 class MovieInfoTabs extends Component {
+	constructor(props){
+		super()
+		this.state = {
+			movie:{}
+		}
+	}
 	handleSelect(index, last) {
     	console.log('Selected tab: ' + index + ', Last tab: ' + last);
   	}
-  	conponentDidMount(){
+  	componentDidMount(){
   		console.log(this.props)
+  		getMovieInfo(this.props.thisMovie)
+  		.then(res => {
+  			this.setState({
+  				movie: res.movie_results[0]
+  			})
+  		})
   	}
-  	render() {  		
+  	render() {
     	return (
     		<div style={styles.MovieInfoTabs}>
 	    		<Tabs 
@@ -33,13 +45,13 @@ class MovieInfoTabs extends Component {
 			    		<Tab>Details</Tab>
 		    		</TabList>
 		    		<TabPanel className="tabPanel">
-		    			<MovieOverview/>
+		    			<MovieOverview movie={this.state.movie}/>
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
 		    			<MovieTrailer/>
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
-		    			<MovieDetails/>
+		    			<MovieDetails movie={this.state.movie}/>
 		    		</TabPanel>
 	    		</Tabs>
 			</div>
@@ -53,9 +65,8 @@ class MovieOverview extends Component {
 		return (
 			<div>
 				<h3>Overview</h3>
-				<h4>Movie Title</h4>
-				<p>Movie description......
-				..............</p>
+				<h4>{this.props.movie.title}</h4>
+				<p>{this.props.movie.overview}</p>
 			</div>
 		)
 	}

@@ -15,11 +15,12 @@ class MovieCarousel extends Component {
       var settings = {
         arrows: true,
         dots:true,
-        slidesToShow: 3
+        slidesToShow: 5
       }
       var moviesToMap = this.props.movies       
       return (
         <div className='carouselContainer'>
+
           {
             moviesToMap.length > 0 ? 
               <Slider {...settings}>

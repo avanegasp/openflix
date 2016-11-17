@@ -2,10 +2,7 @@ html {
   box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+
 
 .App-header {
   background-color: #222;
@@ -19,32 +16,70 @@ html {
 }
 
 .navbar {
+  background-color: rgba(143,76,0,0.5);
   display: flex;
   width: 90%;
-  flex-direction: row;
-  height: 50px;
+  position: fixed;
+  left: 70px;
+  top: 20px;
+  z-index: 100;
+  
 }
 
 .navbar img {
   width: 50px;
-  height: 50px;
+  height: 60px;
 }
 
 .navbar span {
   display: flex;
+  font-weight: normal;
+  padding: 05px 15px;
 }
 
 .navbar .userNav {
   justify-content: flex-end;
+
+}
+
+.userNav .Dropdown-root {
+border-radius: 20px;
+margin-left: 30px;
 }
 
 .navbar > * {
   flex: 1;
 }
 
+
+.buttonIngresa button {
+  width: 200px;
+  height: 50px;
+  font-size: 35px;
+  font-family: Georgia, serif;
+  border-radius: 10px;
+  margin-top: 700px;
+  margin-left: 200px;
+  background-color: #f2680c;  
+}
+.buttonIngresa img{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  
+}
 .wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.slick-list{
+  background-size: contain;
+  margin-top: 100px;
+
 }
 
 .wrapper > * {
@@ -52,11 +87,6 @@ html {
   width: 90%;
 }
   
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .tabWrapper {
   display: flex;
   flex-direction: column-reverse;
@@ -71,21 +101,25 @@ html {
    text-align: center;
    padding: 0; /*sobreescribre el padding default del ul*/
    margin: 0; /*sobreescribre el margin default del ul*/
-}
+ }
 
 .tabNav li{
+  font-family: Georgia, serif;
+  font-size: 20px;
   display: inline-block;
   height: 2em;
   line-height: 2em;
   padding: 0 5px;
+  border-radius: 20px;
 }
 
 .tabNav li:hover {
-  background-color: #1E1E1E;
+  background-color: rgba(143,76,0,0.5);
+  border-radius: 20px;
 }
 
 .tabNav .ReactTabs__Tab--selected {
-  background-color: gray;
+  background-color: #fffbf6;
 }
 
 
@@ -95,7 +129,8 @@ html {
   color: #333;
 }
 
-
 footer {
   padding:20px 10px;
-}
+  font-family: Georgia, serif;
+  font-size: 20px;
+  }

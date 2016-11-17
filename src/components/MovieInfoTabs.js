@@ -59,7 +59,6 @@ class MovieInfoTabs extends Component {
 	}
 }
 
-
 class MovieOverview extends Component {
 	render(){
 		return (

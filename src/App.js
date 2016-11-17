@@ -15,6 +15,7 @@ var base = Rebase.createClass({
 }, 'App');
 
 class App extends Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -43,6 +44,7 @@ class App extends Component {
 	}
   login(){
   	base.authWithOAuthPopup('google', this.authHandler.bind(this));
+    this.context.router.push("/home")
   }
   logout(){
   	base.unauth();
@@ -61,6 +63,10 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.contextTypes = {
+  router: React.PropTypes.object
 }
 
 

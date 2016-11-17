@@ -4,7 +4,7 @@ html {
   min-height: 100vh;
 }
 .App{
-  background-color: #333333;
+  background-color: #333333;   
 } 
 
 .App-header {
@@ -52,27 +52,32 @@ margin-left: 30px;
 
 
 .buttonIngresa button {
+  color: #EAEAEA;
   width: 200px;
   height: 50px;
   font-size: 35px;
-  font-family: Georgia, serif;
-  border-radius: 10px;
-  margin-top: 700px;
-  margin-left: 200px;
-  background-color: #f2680c;  
+  font-family: Georgia, serif;  
+  margin-top: 100px;
+  margin-left: 1120px;
+  background-color: #FF931E;
+  position: absolute;  
+  border-color: transparent;
 }
 .buttonIngresa img{
   width: 100%;
   height: auto;
   position: absolute;
   top: 0;
-  left: 0;
-  z-index:-1;
-  
+  left: 0;    
+}
+
+.buttonIngresa .buttonLogin {
+  top: 300px;
+
 }
 .wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
 .slick-list{

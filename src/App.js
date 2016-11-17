@@ -22,7 +22,10 @@ class App extends Component {
       movies: [],
       loading: true,
       authenticated: false,
-      user: null
+      user: {
+        displayName: "Anonymous",
+        imgUrl: "http://placekitten.com/112/112"
+      }
     }
   }
   componentDidMount(){ 	 
@@ -41,10 +44,11 @@ class App extends Component {
 	  	authenticated:true,
 	  	user:user.user
 	  })
+    this.context.router.push("/home")
 	}
   login(){
   	base.authWithOAuthPopup('google', this.authHandler.bind(this));
-    this.context.router.push("/home")
+    
   }
   logout(){
   	base.unauth();
@@ -56,9 +60,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.location.pathname === `/moviePlayer/${this.props.params.movieId}` ? null : <Nav userNav={this.state.authenticated}/>}
+        {this.props.location.pathname === `/moviePlayer/${this.props.params.movieId}` ? null : <Nav userNav={this.state.authenticated} name={this.state.user.displayName} imgUrl={this.state.user.photoURL} />}
         {this.props.children && React.cloneElement(this.props.children, {
-          movies: this.state.movies
+          movies: this.state.movies, login: this.login.bind(this)
         })}
       </div>
     );

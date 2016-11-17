@@ -7,7 +7,7 @@ class Main extends Component {
   render() {
     return (
     	<div className="buttonIngresa">
-    		<img src={logoaf} className="App-logo" alt="logo"/>  
+    		<img src={logoaf} className="logo" alt="logo"/>  
     		<Button>Ingresa</Button>
     	</div>
     )            

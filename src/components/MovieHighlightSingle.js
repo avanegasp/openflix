@@ -57,7 +57,7 @@ class MovieHighlightSingle  extends Component {
     })
   }
   playMovie(movieId){
-      this.context.router.push('/moviePlayer/')
+      this.context.router.push(`/moviePlayer/${movieId}`)
   }
   render() {
     var style = {
@@ -65,13 +65,14 @@ class MovieHighlightSingle  extends Component {
         backgroundImage:`url(http://image.tmdb.org/t/p/w1000/${this.state.backdropImage})`
       }
     }
+    console.log(this.props)
     return (
       <div style={style.background}>     
         <div style={styles.MovieHighlightInfo}>
           <h4 style={styles.movieTitle}>{this.state.title}</h4>
           <span style={styles.watchNow}>watch now</span>
           <p>{this.state.overview}</p>
-          <button onClick={this.playMovie.bind(this)}>Play</button>
+          <button onClick={this.playMovie.bind(this, this.props.movie.id)}>Play</button>
           {/*<Button>+ My list</Button> */}     
         </div>
       </div>

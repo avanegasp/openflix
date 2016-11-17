@@ -1,6 +1,9 @@
 html {
   box-sizing: border-box;
 }
+.App{
+  background-color: #333333;
+} 
 
 .App-header {
   background-color: #222;
@@ -14,7 +17,7 @@ html {
 }
 
 .navbar {
-  background-color: rgba(143,76,0,0.5);
+  background-color: rgba(15, 30, 38, 0.8);
   display: flex;
   width: 100%;
   position: fixed;
@@ -84,6 +87,9 @@ margin-left: 30px;
 .tabWrapper {
   display: flex;
   flex-direction: column-reverse;
+  border: '2px solid #FF931E';
+/*   background: url(https://moldeandolaluz.files.wordpress.com/2010/10/nosferatu.jpg);
+background-size: cover; */
 }
 
 .tabPanel {
@@ -103,24 +109,22 @@ margin-left: 30px;
   display: inline-block;
   height: 2em;
   line-height: 2em;
-  padding: 0 5px;
-  border-radius: 20px;
+  padding: 0 5px;  
+  border: 2px solid #FF931E;
 }
 
 .tabNav li:hover {
-  background-color: rgba(143,76,0,0.5);
-  border-radius: 20px;
+  background-color: rgba(143,76,0,0.5);  
 }
 
 .tabNav .ReactTabs__Tab--selected {
-  background-color: #fffbf6;
+  background-color: #FF931E;
 }
 
 
 .carouselContainer {
   margin: 20px auto;
-  padding: 40px;
-  color: #333;
+  padding: 40px;   
 }
 
 footer {

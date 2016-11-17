@@ -8,22 +8,27 @@ const styles = {
     display: 'flex' 
   },
   moviePoster: {
-    width: 800,
+    width: 800,    
     alignItems:  'flex-start'   
   },
     MovieHighlightInfo: {
     width: 250,
     height: 250,    
     marginLeft: 30,
-    fontFamily: 'Roboto, sans-serif'   
+    fontFamily: 'Roboto, sans-serif',
+    color: '#FFFFFF',
+    backgroundColor: 'rgba(24, 36, 44, 0.7)',
+    padding: '10px',
+
   },
   movieTitle: {
     marginBottom: 2
   },
   watchNow: {
-    color: '#BDBDBD',
-    fontSize: 14,   
-  }
+    color: '#FF931E',
+    fontSize: 14,
+    textDecoration: 'none'   
+  } 
 }
 
 class MovieHighlightSingle  extends Component {

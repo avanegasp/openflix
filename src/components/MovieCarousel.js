@@ -3,21 +3,71 @@ import Slider from 'react-slick'
 import MovieInfoTabs from './MovieInfoTabs'
 import { getMovieInfo } from '../utils/getMovieInfo'
 
-
+const styles = {
+ outer: {
+    height: '169px',
+    width: '300px',
+    width: '00px',
+    margin: '20px',    
+    cursor: 'pointer',
+    margin: '5px',
+    position: 'relative'
+  },
+  normal: {
+    height: '169px',
+    width: '300px',
+    margin: '20px',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 10,
+    right: 10   
+  },
+  hover: { 
+    height: '229px',
+    width: '360px',
+    position: 'absolute',
+    margin: '5px',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,    
+    opacity: 1,
+    transition: 'opacity 500ms linear',    
+  }
+}
 class MovieCarousel extends Component {
   constructor(){
     super()
     this.state = {
-        childVisible: false
+        childVisible: false,
+        currentMovieDetails: '',
+        hover: false             
     }
   }
+
+  onMouseEnterHandle(){
+    this.setState({
+      hover:true
+    })
+ } 
+
+  onMouseLeaveHandler(){
+   this.setState({
+      hover:false
+   })
+  }
+ 
   render () {
       var settings = {
         arrows: true,
         dots:true,
         slidesToShow: 5
+
       }
-      var moviesToMap = this.props.movies       
+
+      var moviesToMap = this.props.movies;
+
       return (
         <div className='carouselContainer'>
 
@@ -25,7 +75,7 @@ class MovieCarousel extends Component {
             moviesToMap.length > 0 ? 
               <Slider {...settings}>
                 {moviesToMap.map((movie, index) => (
-                  <div onClick={this.onClick.bind(this)} data-index={index} key={index}>
+                  <div onClick={this.onClick.bind(this, movie.id)} data-index={index} key={index}>
                     <MovieCard getMovieInfo={getMovieInfo} movie={movie}/>
                   </div>
                 ))}
@@ -33,14 +83,19 @@ class MovieCarousel extends Component {
           }
           {
             this.state.childVisible
-              ? <TabsCont />
+              ? <TabsCont thisMovie={this.state.currentMovieDetails}/>
               : null
-          }
+          } 
+
+
         </div>
       )
   }
-  onClick() {
-    this.setState({childVisible: true});
+  onClick(movieId) {    
+    this.setState({
+      childVisible: true,
+      currentMovieDetails: movieId
+    });
   }
 }
 
@@ -49,7 +104,7 @@ class MovieCard extends Component {
     super(props)
     this.state = {
       alt:"",
-      image:"hey"
+      image:"hey"  
     }
   }
   componentDidMount(){
@@ -63,18 +118,37 @@ class MovieCard extends Component {
         }) 
     })
   }
+
+  onMouseEnterHandle(){
+    this.setState({
+      hover:true
+    })
+  }
+
+  onMouseLeaveHandler(){
+    this.setState({
+      hover:false
+    })
+  }
+
   render(){
+  var inner = styles.normal;
+    if(this.state.hover) {
+      inner = styles.hover;
+    }
     return (
-      <div><img src={`http://image.tmdb.org/t/p/w300/${this.state.image}`} alt={this.state.alt}/></div>
+      <div style={styles.outer}>
+        <img src={`http://image.tmdb.org/t/p/w300/${this.state.image}`} alt={this.state.alt} onMouseEnter={this.onMouseEnterHandle.bind(this)} onMouseLeave={this.onMouseLeaveHandler.bind(this)} style={inner}/>
+      </div>
     )
   }
 }
 
 class TabsCont extends Component {
-  render(){
+  render(){    
     return(
       <div>
-        <MovieInfoTabs/>
+        <MovieInfoTabs {...this.props}/>
       </div>
     )
   }

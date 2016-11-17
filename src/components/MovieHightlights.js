@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import MovieHighlightSingle from './MovieHighlightSingle.js';
 import Slider from 'react-slick';
+import '../App.css';
 import { getMovieInfo } from '../utils/getMovieInfo'
 
 /*const styles = {
-  MovieHightlights: {
-    width: 800,
-    height: 500,
-    margin: "0 auto",    
+  MovieHightlights: {    
     boxShadow: "3px 3px 1px #888888"
   }
 
@@ -20,7 +18,8 @@ class MovieHightlights extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      adaptiveHeight: true
     }
     var moviesToMap = this.props.movies
     return (

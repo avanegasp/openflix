@@ -1,14 +1,39 @@
 import React, { Component } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import '../App.css'
+import { getMovieInfo } from '../utils/getMovieInfo'
+
+
+const styles = {
+  MovieInfoTabs: {   
+    color: 'white',
+    marginTop: '30px',
+    border: '2px solid #FF931E'
+  }
+}
 
 class MovieInfoTabs extends Component {
+	constructor(props){
+		super()
+		this.state = {
+			movie:{}
+		}
+	}
 	handleSelect(index, last) {
     	console.log('Selected tab: ' + index + ', Last tab: ' + last);
   	}
+  	componentDidMount(){
+  		console.log(this.props)
+  		getMovieInfo(this.props.thisMovie)
+  		.then(res => {
+  			this.setState({
+  				movie: res.movie_results[0]
+  			})
+  		})
+  	}
   	render() {
     	return (
-    		<div>
+    		<div style={styles.MovieInfoTabs}>
 	    		<Tabs 
 	    		className="tabWrapper"
 	    		onSelect={this.handleSelect}
@@ -20,13 +45,13 @@ class MovieInfoTabs extends Component {
 			    		<Tab>Details</Tab>
 		    		</TabList>
 		    		<TabPanel className="tabPanel">
-		    			<MovieOverview/>
+		    			<MovieOverview movie={this.state.movie}/>
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
 		    			<MovieTrailer/>
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
-		    			<MovieDetails/>
+		    			<MovieDetails movie={this.state.movie}/>
 		    		</TabPanel>
 	    		</Tabs>
 			</div>
@@ -39,7 +64,9 @@ class MovieOverview extends Component {
 	render(){
 		return (
 			<div>
-				Overview
+				<h3>Overview</h3>
+				<h4>{this.props.movie.title}</h4>
+				<p>{this.props.movie.overview}</p>
 			</div>
 		)
 	}
@@ -49,6 +76,7 @@ class MovieTrailer extends Component {
 	render(){
 		return(
 			<div>Trailer</div>
+
 		)
 	}
 }

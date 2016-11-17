@@ -7,7 +7,6 @@ const styles = {
  outer: {
     height: '169px',
     width: '300px',
-    width: '00px',
     margin: '20px',    
     cursor: 'pointer',
     margin: '5px',
@@ -33,7 +32,15 @@ const styles = {
     left: 0,
     right: 0,    
     opacity: 1,
-    transition: 'opacity 500ms linear',    
+    transition: 'opacity 500ms linear', 
+    zIndex: 20   
+  },
+  hoverTitle: {
+    backgroundColor: '#FF931E',
+    color: '#231F20',
+    marginLeft:  20,
+    position: 'absolute',
+    zIndex: 50
   }
 }
 class MovieCarousel extends Component {
@@ -41,21 +48,8 @@ class MovieCarousel extends Component {
     super()
     this.state = {
         childVisible: false,
-        currentMovieDetails: '',
-        hover: false             
+        currentMovieDetails: ''                   
     }
-  }
-
-  onMouseEnterHandle(){
-    this.setState({
-      hover:true
-    })
- } 
-
-  onMouseLeaveHandler(){
-   this.setState({
-      hover:false
-   })
   }
  
   render () {
@@ -72,7 +66,7 @@ class MovieCarousel extends Component {
             moviesToMap.length > 0 ? 
               <Slider {...settings}>
                 {moviesToMap.map((movie, index) => (
-                  <div onClick={this.onClick.bind(this, movie.id)} data-index={index} key={index}>
+                  <div onClick={this.onClick.bind(this, movie.id)} data-index={index} key={movie.id}>
                     <MovieCard getMovieInfo={getMovieInfo} movie={movie}/>
                   </div>
                 ))}
@@ -135,6 +129,7 @@ class MovieCard extends Component {
     }
     return (
       <div style={styles.outer}>
+        {this.state.hover ?<h4 style={styles.hoverTitle}>{this.state.alt}</h4> : null}
         <img src={`http://image.tmdb.org/t/p/w300/${this.state.image}`} alt={this.state.alt} onMouseEnter={this.onMouseEnterHandle.bind(this)} onMouseLeave={this.onMouseLeaveHandler.bind(this)} style={inner}/>
       </div>
     )

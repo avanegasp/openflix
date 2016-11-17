@@ -5,10 +5,21 @@ import { getMovieInfo } from '../utils/getMovieInfo'
 
 
 const styles = {
-  MovieInfoTabs: {   
+  movieInfoCont: {   
     color: 'white',
     marginTop: '30px',
-    border: '2px solid #FF931E'
+    border: '2px solid #FF931E',
+    padding: '0px'
+  },
+  contentInfo: {
+  	marginTop: 0,
+  	backgroundColor: 'red',
+  	height: 300,
+  	maxWidth: 200
+  },
+  movieInfoDescription: {
+  	backgroundColor: 'black',
+  	maxWidth: '300px'
   }
 }
 
@@ -31,13 +42,28 @@ class MovieInfoTabs extends Component {
   			})
   		})
   	}
+  	componentWillReceiveProps(nextProps)  {
+  	  getMovieInfo(nextProps.thisMovie)
+  	  .then(res => {
+  	  	this.setState({
+  	  		movie: res.movie_results[0]
+  	  	})
+  	  })
+  	}
   	render() {
+  		var style = {
+  		  background:{
+  		    backgroundImage:`url(http://image.tmdb.org/t/p/w1000/${this.state.movie.backdrop_path})`,
+  		    backgroundSize: "cover"
+  		  }
+  		}
     	return (
-    		<div style={styles.MovieInfoTabs}>
+    		<div style={styles.movieInfoCont}>
 	    		<Tabs 
 	    		className="tabWrapper"
 	    		onSelect={this.handleSelect}
 	    		selectedIndex={0}
+	    		style={style.background}
 	    		>
 	    			<TabList className="tabNav">
 			    		<Tab>Overview</Tab>
@@ -62,10 +88,12 @@ class MovieInfoTabs extends Component {
 class MovieOverview extends Component {
 	render(){
 		return (
-			<div>
-				<h3>Overview</h3>
-				<h4>{this.props.movie.title}</h4>
-				<p>{this.props.movie.overview}</p>
+			<div style={styles.contentInfo}>
+				<div style={styles.movieInfoDescription}>
+					<h3>Overview</h3>
+					<h4>{this.props.movie.title}</h4>
+					<p>{this.props.movie.overview}</p>
+				</div>
 			</div>
 		)
 	}

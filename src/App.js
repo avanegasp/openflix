@@ -63,8 +63,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.location.pathname === `/moviePlayer/${this.props.params.movieId}` ? null : <Nav userNav={this.state.authenticated} name={this.state.user.displayName} imgUrl={this.state.user.photoURL} />}
-         origin/maria
+        {this.props.location.pathname === `/moviePlayer/${this.props.params.movieId}` ? null : <Nav userNav={this.state.authenticated} name={this.state.user.displayName} imgUrl={this.state.user.photoURL} logout={this.logout.bind(this)} />}
         {this.props.children && React.cloneElement(this.props.children, {
           movies: this.state.movies, login: this.login.bind(this), logout:this.logout.bind(this)
         })} 
@@ -76,6 +75,5 @@ class App extends Component {
 App.contextTypes = {
   router: React.PropTypes.object
 }
-
 
 export default App;

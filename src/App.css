@@ -158,9 +158,16 @@ background-size: cover; */
 }
 
 .player {
-  margin-top:70px; 
   height: 100%;
   flex:1;
+}
+
+.backButton {
+  width: 100px;
+  height: 40px;
+  position: fixed;
+  top:10px;
+  left: 10px;
 }
 
 /* video player end*/

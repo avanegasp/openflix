@@ -20,7 +20,7 @@ class Main extends Component {
 }
 
 Main.contextTypes = {
-router: React.PropTypes.object
+    router: React.PropTypes.object
 }
 
 export default Main

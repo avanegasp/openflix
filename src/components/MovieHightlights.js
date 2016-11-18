@@ -22,13 +22,16 @@ class MovieHightlights extends Component {
       adaptiveHeight: true
     }
     var moviesToMap = this.props.movies
+    console.log(moviesToMap)
     return (
-      <Slider {...settings}>
-      <h1>{this.props.movieTitle}</h1>
-       {moviesToMap.map((movie) => <div key={movie.id}>
-          <MovieHighlightSingle consoleMovieInfo={getMovieInfo.bind(this)} movie={movie}/>
-        </div>)}
-     </Slider>
+        moviesToMap.length > 0 ? 
+          <Slider {...settings}>
+            {moviesToMap.map((movie, index) => (
+              <div data-index={index} key={movie.id}>
+                <MovieHighlightSingle consoleMovieInfo={getMovieInfo.bind(this)} movie={movie}/>
+              </div>
+            ))}
+          </Slider> : null 
     );            
   }
 }

@@ -35,8 +35,8 @@ class UserNav extends Component {
     ]
 		return (
 			<span className="userNav">	
-				<img src={this.props.imgUrl} alt="img user"/>    			
-				<Dropdown options={options} onChange={this._onSelect.bind(this)} value={this.props.name} placeholder="Select an option"/>				
+				<img src={this.props.imgUrl} alt="img user"/>
+				<Dropdown options={options} onChange={this._onSelect.bind(this)} value={this.props.name} placeholder="Select an option"/>
       </span>
     )
 	}

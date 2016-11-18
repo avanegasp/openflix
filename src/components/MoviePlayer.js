@@ -13,7 +13,6 @@ class MoviePlayer extends Component {
 		this.context.router.push('/home')
 	}
 	componentWillReceiveProps(nextProps) {
-	  console.log("nextProps", nextProps)
 	  this.setState({
 	  	movie: this.props.movies.find(movie => movie.id === this.props.params.movieId)
 	  })

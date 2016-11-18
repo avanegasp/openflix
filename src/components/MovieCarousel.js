@@ -52,8 +52,7 @@ class MovieCarousel extends Component {
     }
   } 
 
-  onClick(movieId) { 
-    console.log("hola como estas")   
+  onClick(movieId) {  
     this.setState({
       childVisible: true,
       currentMovieDetails: movieId
@@ -84,8 +83,6 @@ class MovieCarousel extends Component {
               ? <TabsCont thisMovie={this.state.currentMovieDetails}/>
               : null
           } 
-
-
         </div>
       )
   }

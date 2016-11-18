@@ -5,7 +5,6 @@ import logoaf from '../img/logoaf.png';
 class Main extends Component {
   
   onClickHandler() {
-    console.log(this.props.login)
     this.props.login()
   }
   render() {

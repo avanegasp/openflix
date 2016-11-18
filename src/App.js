@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Rebase from 're-base';
 import './App.css';
-import Nav from './components/Nav.js';
+import Nav from './components/Nav';
+import Button from './components/Button';
+import Display from './components/Display'
 /*import Main from './components/Main.js';*/
-import apiKey from './config/apikey.js';
-
 
 var base = Rebase.createClass({
     apiKey: "AIzaSyCVHJ-fVIeo1ObZCkdYFy3348BCdmkg-eg",
@@ -15,16 +15,18 @@ var base = Rebase.createClass({
 }, 'App');
 
 class App extends Component {
+
   constructor(props){
     super(props);
     this.state = {
       movies: [],
-      loading: true
+      loading: true,
+      authenticated: false,
+      user: {
+        displayName: "User",
+        photoURL: "https://files.slack.com/files-tmb/T03KUKHBV-F33UAVDSN-e836c261e4/default-user_360.png"
+      }
     }
-  }
-  getMovieInfo(imdbId){
-  	return fetch(`https://api.themoviedb.org/3/find/${imdbId}?api_key=${apiKey}&language=en-US&external_source=imdb_id`)
-    	.then(data => data.json())
   }
   componentDidMount(){ 	 
     this.ref = base.syncState('movies', {
@@ -36,18 +38,42 @@ class App extends Component {
       }
     });
   }
+  authHandler(error, user) {
+	  if(error) console.log(error);
+	  this.setState({
+	  	authenticated:true,
+	  	user:user.user
+	  })
+    this.context.router.push("/home")
+	}
+  login(){
+  	base.authWithOAuthPopup('google', this.authHandler.bind(this));   
+  }
+  logout(){
+  	base.unauth();
+  	this.setState({
+	  	authenticated:false,
+	  	user: {
+        displayName: "User",
+        photoURL: "https://files.slack.com/files-tmb/T03KUKHBV-F33UAVDSN-e836c261e4/default-user_360.png"
+      }
+	  })
+    this.context.router.push("/")
+  }
   render() {
     return (
       <div className="App">
-        <Nav />
+        {this.props.location.pathname === `/moviePlayer/${this.props.params.movieId}` ? null : <Nav userNav={this.state.authenticated} name={this.state.user.displayName} imgUrl={this.state.user.photoURL} logout={this.logout.bind(this)} />}
         {this.props.children && React.cloneElement(this.props.children, {
-              movies: this.state.movies,
-              getMovieInfo: this.getMovieInfo
-				})}
+          movies: this.state.movies, login: this.login.bind(this), logout:this.logout.bind(this)
+        })} 
       </div>
     );
   }
 }
 
+App.contextTypes = {
+  router: React.PropTypes.object
+}
 
 export default App;

@@ -1,11 +1,21 @@
 html {
   box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+button {
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #FF931E;
+  border: solid 1px #FF931E;
 }
+
+.App {
+  background-color: #333333;   
+} 
 
 .App-header {
   background-color: #222;
@@ -19,47 +29,127 @@ html {
 }
 
 .navbar {
+  background-color: rgba(15, 30, 38, 0.8);
   display: flex;
-  width: 90%;
-  flex-direction: row;
-  height: 50px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
 }
 
 .navbar img {
-  width: 50px;
-  height: 50px;
+  height: 60px;
 }
 
 .navbar span {
   display: flex;
+  font-weight: normal;
+  padding: 05px 15px;
 }
 
 .navbar .userNav {
   justify-content: flex-end;
 }
 
+.userNav .Dropdown-root {
+ border-radius: 20px;
+ margin-left: 30px;
+}
+
 .navbar > * {
   flex: 1;
 }
 
+.loginMain button {
+  color: #EAEAEA;
+  width: 200px;
+  height: 50px;
+  font-size: 35px;
+  font-family: Georgia, serif;  
+  margin-top: 750px;
+  margin-left: 900px;
+  background-color: #FF931E;
+  position: absolute;  
+  border-color: transparent;
+}
+.loginMain img{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;    
+}
+
+.loginMain p {
+  float: center;
+  margin-right: 700px;
+  border: 2px solid transparent;
+  font-size: 30px;
+  margin-top: 680px;
+  margin-left: 29px;
+  padding: 10px;
+  font-family: Georgia, serif;  
+  z-index: 120;
+  color: #D1603D;
+  position: absolute;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
 .wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
+/* MovieHighlights*/
+
+.movieOverview {
+  font-size: 0.8em;
+}
+
+.moviePoster: {
+    width: 800;    
+    align-items: 'flex-start';   
+  },
+
+.movieTitle {
+    margin-bottom: 2
+}
+
+.watchNow {
+    color: '#FF931E';
+    font-size: 14;
+    text-decoration: 'none';   
+} 
+.gradient {
+    background:linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 36%, rgba(0,0,0,0.5) 40%, rgba(255,255,255,0) 100%);
+    height:'600px';
+    padding:'100px 50px';
+  }
+
+/* end MovieHighlights*/
+
+.slick-list{
+  background-size: contain;
+}
+
+.Dropdown-placeholder{
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px; 
+
+}
+.Dropdown-menu .Dropdown-option{
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px; 
+  background-color: #231F20;
+}
 .wrapper > * {
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
 }
   
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .tabWrapper {
   display: flex;
   flex-direction: column-reverse;
+  border: '2px solid #FF931E';
 }
 
 .tabPanel {
@@ -70,32 +160,60 @@ html {
 .tabNav {
    text-align: center;
    padding: 0; /*sobreescribre el padding default del ul*/
-   margin: 0; /*sobreescribre el margin default del ul*/
-}
+   margin: 0; /*sobreescribre el margin default del ul*/   
+ }
 
 .tabNav li{
+  font-family: Georgia, serif;
+  font-size: 20px;
   display: inline-block;
   height: 2em;
   line-height: 2em;
-  padding: 0 5px;
+  padding: 0 5px;  
+  border: 2px solid #FF931E;
+  background: #231F20;
 }
 
 .tabNav li:hover {
-  background-color: #1E1E1E;
+  background-color: #333;  
 }
 
 .tabNav .ReactTabs__Tab--selected {
-  background-color: gray;
+  background-color: #FF931E;
 }
 
 
 .carouselContainer {
   margin: 20px auto;
-  padding: 40px;
-  color: #333;
+  padding: 40px;   
 }
 
+/*video player*/
+
+.playerWrapper {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+}
+
+.player {
+  height: 100%;
+  flex:1;
+}
+
+.backButton {
+  width: 100px;
+  height: 40px;
+  position: fixed;
+  top:10px;
+  left: 10px;
+}
+
+/* video player end*/
 
 footer {
   padding:20px 10px;
+  font-family: Georgia, serif;
+  font-size: 20px;
 }

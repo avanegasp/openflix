@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 const styles = {
-  MovieHighlightSingle: {
+  /*MovieHighlightSingle: {
     width: 800,
     height: 500,
     margin: "0 auto",   
     display: 'flex' 
-  },
-  moviePoster: {
-    width: 800,
-    alignItems:  'flex-start'   
-  },
-    MovieHighlightInfo: {
-    width: 250,
-    height: 250,    
+  },*/
+  MovieHighlightInfo: {
+    width: 300,    
     marginLeft: 30,
-    fontFamily: 'Roboto, sans-serif'   
-    
+    fontSize:'16pt',
+    color: '#FFFFFF',
+    padding: '10px'
   },
   movieTitle: {
     marginBottom: 2
   },
-  watchNow: {
-    color: '#BDBDBD',
-    fontSize: 14,   
+  gradient:{
+    background:'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 36%, rgba(0,0,0,0.5) 40%, rgba(255,255,255,0) 100%)',
+    height:'600px',
+    padding:'100px 50px'
   }
 }
 
@@ -33,49 +31,51 @@ class MovieHighlightSingle  extends Component {
     this.state = {
       title:"",
       releaseDate:"",
-      overview:""
+      overview:"",
+      backdropImage:""
     }
   }
   componentDidMount(){ 
     this.props.consoleMovieInfo(this.props.movie.id)
     .then(res => {
-        let movieTitle=res.movie_results[0].title;   
-        let movieOverView=res.movie_results[0].overview;
-        let movieReleaseDate=res.movie_results[0].release_date;
-        console.log(movieTitle, movieOverView, movieReleaseDate);
+        let movieTitle = res.movie_results[0].title;   
+        let movieOverView = res.movie_results[0].overview;
+        let movieReleaseDate = res.movie_results[0].release_date;
+        let movieBackdrop = res.movie_results[0].backdrop_path;
         this.setState({
             title:movieTitle,
             overview: movieOverView,
-            releaseDate: movieReleaseDate
+            releaseDate: movieReleaseDate,
+            backdropImage: movieBackdrop
         })
     })
   }
+  playMovie(movieId){
+      this.context.router.push(`/moviePlayer/${movieId}`)
+  }
   render() {
+    var style = {
+      background:{
+        background:`url(http://image.tmdb.org/t/p/w1280/${this.state.backdropImage}) no-repeat right`,
+        height:'600px'
+      }
+    }
     return (
-      <div style={styles.MovieHighlightSingle}>     
-        <div style={styles.MovieHighlightInfo}>
-          <h4 style={styles.movieTitle}>{this.state.title}</h4>
-          <span style={styles.watchNow}>watch now</span>
-          <p>{this.state.overview}</p>
-          {/*<Button>Play</Button>*/}
-          {/*<Button>+ My list</Button> */}     
+      <div style={style.background}>
+        <div style={styles.gradient}>
+          <div style={styles.MovieHighlightInfo}>
+            <h4 style={styles.movieTitle}>{this.state.title}</h4>
+            <p className="movieOverview">{this.state.overview}</p>
+            <button onClick={this.playMovie.bind(this, this.props.movie.id)}>Watch Now</button>     
+          </div>
         </div>
       </div>
     )            
   }
 }
-/*
-class MovieHighlightInfo  extends Component {
-  render() {
-    return (
-      <div style={styles.MovieHighlightInfo}>
-        <h4 style={styles.movieTitle}>{this.props.id}</h4>
-        <span style={styles.watchNow}>watch now</span>
-        <p>{this.props.video} {this.props.title}</p>
-      </div>
-    )
-  }
-}
-*/
+
+MovieHighlightSingle.contextTypes={
+  router:React.PropTypes.object
+} 
 
 export default MovieHighlightSingle;

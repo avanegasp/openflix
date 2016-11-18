@@ -12,7 +12,7 @@ const routes = (
 			<IndexRoute component={Main}/>
 			<Route path='/home' component={Home}/>
 			<Route path='/userlist'component={UserMovieList}/>
-			<Route path='/moviePlayer/:movieId' component={MoviePlayer}/>
+			<Route path='/moviePlayer/:movieId' component={MoviePlayer} />
 		</Route>
 	</Router>
 )

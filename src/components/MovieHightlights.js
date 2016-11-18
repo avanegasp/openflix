@@ -22,7 +22,6 @@ class MovieHightlights extends Component {
       adaptiveHeight: true
     }
     var moviesToMap = this.props.movies
-    console.log(moviesToMap)
     return (
         moviesToMap.length > 0 ? 
           <Slider {...settings}>

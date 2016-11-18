@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieHightlights  from './MovieHightlights.js';
-import MovieCarousel from './MovieCarousel.js';
+import MovieSliders from './MovieSliders.js';
 import '../App.css';
 import Footer from './Footer.js';
 
@@ -18,7 +18,7 @@ class Home extends Component {
     return (
       <div className="wrapper">
         <MovieHightlights {...this.props} />      
-        <MovieCarousel {...this.props} />
+        <MovieSliders {...this.props} />
         <Footer/>
       </div>
     );

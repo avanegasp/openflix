@@ -140,9 +140,6 @@ class MovieDetails extends Component {
 					<p><strong style={styles.movieInfoTitle}>Popularity:</strong> {Math.ceil(this.props.movie.popularity)}</p>
 					<p><strong style={styles.movieInfoTitle}>Release Date:</strong> {this.props.movie.release_date}</p>
 				</div>
-				<div style={styles.posterBoxImg}>
-					<img src={`http://image.tmdb.org/t/p/w300/${this.props.movie.poster_path}`} alt={this.props.movie.title} style={styles.posterImg}/>
-				</div>
 			</div>
 			
 		)

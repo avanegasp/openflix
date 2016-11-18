@@ -65,7 +65,6 @@ class MovieHighlightSingle  extends Component {
         backgroundImage:`url(http://image.tmdb.org/t/p/w1000/${this.state.backdropImage})`
       }
     }
-    console.log(this.props)
     return (
       <div style={style.background}>     
         <div style={styles.MovieHighlightInfo}>

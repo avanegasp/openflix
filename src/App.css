@@ -4,11 +4,16 @@ html {
   min-height: 100vh;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
+button {
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #FF931E;
+  border: solid 1px #FF931E;
 }
 
-.App{
+.App {
   background-color: #333333;   
 } 
 
@@ -43,7 +48,6 @@ body {
 
 .navbar .userNav {
   justify-content: flex-end;
-
 }
 
 .userNav .Dropdown-root {
@@ -95,9 +99,36 @@ body {
   flex-direction: column; 
 }
 
+/* MovieHighlights*/
+
+.movieOverview {
+  font-size: 0.8em;
+}
+
+.moviePoster: {
+    width: 800;    
+    align-items: 'flex-start';   
+  },
+
+.movieTitle {
+    margin-bottom: 2
+}
+
+.watchNow {
+    color: '#FF931E';
+    font-size: 14;
+    text-decoration: 'none';   
+} 
+.gradient {
+    background:linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 36%, rgba(0,0,0,0.5) 40%, rgba(255,255,255,0) 100%);
+    height:'600px';
+    padding:'100px 50px';
+  }
+
+/* end MovieHighlights*/
+
 .slick-list{
   background-size: contain;
-  margin-top: 100px;
 }
 
 .Dropdown-placeholder{
@@ -112,15 +143,13 @@ body {
 }
 .wrapper > * {
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
 }
   
 .tabWrapper {
   display: flex;
   flex-direction: column-reverse;
   border: '2px solid #FF931E';
-/*   background: url(https://moldeandolaluz.files.wordpress.com/2010/10/nosferatu.jpg);
-background-size: cover; */
 }
 
 .tabPanel {

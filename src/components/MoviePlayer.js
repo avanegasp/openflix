@@ -12,7 +12,7 @@ class MoviePlayer extends Component {
 	render(){
 		return (
 			<div className="playerWrapper">
-				<button onClick={this.goBack.bind(this)}>Back</button>
+				<button className="backButton" onClick={this.goBack.bind(this)}>Back</button>
 				<ReactPlayer height={"100vh"} className="player" controls={true} url='https://www.youtube.com/watch?v=bS5P_LAqiVg'/>
 			</div>
 		)

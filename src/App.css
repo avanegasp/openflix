@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
 }
 .App{
   background-color: #333333;   
@@ -133,8 +135,25 @@ background-size: cover; */
   padding: 40px;   
 }
 
+/*video player*/
+
+.playerWrapper {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+}
+
+.player {
+  margin-top:70px; 
+  height: 100%;
+  flex:1;
+}
+
+/* video player end*/
+
 footer {
   padding:20px 10px;
   font-family: Georgia, serif;
   font-size: 20px;
-  }
+}

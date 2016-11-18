@@ -47,27 +47,27 @@ body {
 }
 
 .userNav .Dropdown-root {
-border-radius: 20px;
-margin-left: 30px;
+ border-radius: 20px;
+ margin-left: 30px;
 }
 
 .navbar > * {
   flex: 1;
 }
 
-.buttonIngresa button {
+.loginMain button {
   color: #EAEAEA;
   width: 200px;
   height: 50px;
   font-size: 35px;
   font-family: Georgia, serif;  
-  margin-top: 100px;
-  margin-left: 1120px;
+  margin-top: 750px;
+  margin-left: 900px;
   background-color: #FF931E;
   position: absolute;  
   border-color: transparent;
 }
-.buttonIngresa img{
+.loginMain img{
   width: 100%;
   height: auto;
   position: absolute;
@@ -75,9 +75,20 @@ margin-left: 30px;
   left: 0;    
 }
 
-.buttonIngresa .buttonLogin {
-  top: 300px;
-
+.loginMain p {
+  float: center;
+  margin-right: 700px;
+  border: 2px solid transparent;
+  font-size: 30px;
+  margin-top: 680px;
+  margin-left: 29px;
+  padding: 10px;
+  font-family: Georgia, serif;  
+  z-index: 120;
+  color: #D1603D;
+  position: absolute;
+  text-transform: uppercase;
+  letter-spacing: .5px;
 }
 .wrapper {
   display: flex;
@@ -120,7 +131,7 @@ background-size: cover; */
 .tabNav {
    text-align: center;
    padding: 0; /*sobreescribre el padding default del ul*/
-   margin: 0; /*sobreescribre el margin default del ul*/
+   margin: 0; /*sobreescribre el margin default del ul*/   
  }
 
 .tabNav li{
@@ -131,10 +142,11 @@ background-size: cover; */
   line-height: 2em;
   padding: 0 5px;  
   border: 2px solid #FF931E;
+  background: #231F20;
 }
 
 .tabNav li:hover {
-  background-color: rgba(143,76,0,0.5);  
+  background-color: #333;  
 }
 
 .tabNav .ReactTabs__Tab--selected {

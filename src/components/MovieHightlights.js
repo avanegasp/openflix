@@ -4,13 +4,6 @@ import Slider from 'react-slick';
 import '../App.css';
 import { getMovieInfo } from '../utils/getMovieInfo'
 
-/*const styles = {
-  MovieHightlights: {    
-    boxShadow: "3px 3px 1px #888888"
-  }
-
-}*/
-
 class MovieHightlights extends Component {
   render() {
     var settings = {

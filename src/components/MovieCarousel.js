@@ -63,8 +63,10 @@ class MovieCarousel extends Component {
       var settings = {
         arrows: true,
         dots:true,
-        slidesToShow: 5
-
+        speed: 500,
+        infinite:true,
+        slidesToShow: 4,
+        slidesToScroll:4
       }
       var moviesToMap = this.props.movies;
       return (
@@ -84,8 +86,6 @@ class MovieCarousel extends Component {
               ? <TabsCont thisMovie={this.state.currentMovieDetails}/>
               : null
           } 
-
-
         </div>
       )
   }

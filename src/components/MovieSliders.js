@@ -9,7 +9,7 @@ class MovieSliders extends Component {
 		var popular = movies.slice(23, 30);
 		var recommended = movies.slice(31, movies.length-1);
 		return (
-			<div>
+			<div className="movieSliders">
 				<h2>Agregados Recientemente</h2>
 				<MovieCarousel movies={newest}/>
 				<h2>Clásicos</h2>

@@ -2,6 +2,8 @@ html {
   box-sizing: border-box;
   width: 100%;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -127,6 +129,25 @@ button {
 
 /* end MovieHighlights*/
 
+/* MovieSliders*/
+
+.movieSliders {
+  padding-left: 40px;
+}
+
+.movieSliders h2{
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  margin: 30px 0 0 0;
+}
+
+.carouselContainer {
+  width: 95%;
+}
+
+/* end MovieSliders*/
+
 .slick-list{
   background-size: contain;
 }
@@ -142,7 +163,6 @@ button {
   background-color: #231F20;
 }
 .wrapper > * {
-  margin: 0 auto;
   width: 100%;
 }
   
@@ -183,10 +203,7 @@ button {
 }
 
 
-.carouselContainer {
-  margin: 20px auto;
-  padding: 40px;   
-}
+
 
 /*video player*/
 
@@ -212,8 +229,10 @@ button {
 
 /* video player end*/
 
-footer {
-  padding:20px 10px;
-  font-family: Georgia, serif;
-  font-size: 20px;
+.footer {
+  margin-top:40px; 
+  padding:10px 0 10px 10px;
+  font-size: 2em;
+  background: #FF931E;
+  color: white;
 }

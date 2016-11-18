@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-
-const styles = {
-  footer: {
-    background: '#FF931E',
-    color: 'white',
-    width: '100%',
-    height: '8px',
-  }
-}
+import '../App.css';
 
 class Footer extends Component {
 	
   render() {
     return (
-         	<footer style={styles.footer}>
+         	<footer className="footer">
         	    OpenFlix 2016
             </footer>
      );

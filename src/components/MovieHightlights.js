@@ -18,14 +18,14 @@ class MovieHightlights extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1,
-      adaptiveHeight: true
+      slidesToScroll: 1
     }
     var moviesToMap = this.props.movies
+    var highlights = moviesToMap.slice(0,5);
     return (
         moviesToMap.length > 0 ? 
           <Slider {...settings}>
-            {moviesToMap.map((movie, index) => (
+            {highlights.map((movie, index) => (
               <div data-index={index} key={movie.id}>
                 <MovieHighlightSingle consoleMovieInfo={getMovieInfo.bind(this)} movie={movie}/>
               </div>

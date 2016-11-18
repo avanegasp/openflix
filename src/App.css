@@ -3,7 +3,7 @@ html {
   width: 100%;
   min-height: 100vh;
 }
-.App{
+.App {
   background-color: #333333;   
 } 
 
@@ -38,7 +38,6 @@ html {
 
 .navbar .userNav {
   justify-content: flex-end;
-
 }
 
 .userNav .Dropdown-root {
@@ -49,7 +48,6 @@ margin-left: 30px;
 .navbar > * {
   flex: 1;
 }
-
 
 .buttonIngresa button {
   color: #EAEAEA;
@@ -88,7 +86,7 @@ margin-left: 30px;
 
 .wrapper > * {
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
 }
   
 .tabWrapper {

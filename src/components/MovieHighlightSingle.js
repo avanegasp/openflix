@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 const styles = {
-  MovieHighlightSingle: {
+  /*MovieHighlightSingle: {
     width: 800,
     height: 500,
     margin: "0 auto",   
     display: 'flex' 
-  },
+  },*/
   moviePoster: {
     width: 800,    
     alignItems:  'flex-start'   
@@ -15,6 +15,7 @@ const styles = {
     width: 250,
     height: 250,    
     marginLeft: 30,
+    border:'solid 1px red',
     fontFamily: 'Roboto, sans-serif',
     color: '#FFFFFF',
     backgroundColor: 'rgba(24, 36, 44, 0.7)',
@@ -28,7 +29,11 @@ const styles = {
     color: '#FF931E',
     fontSize: 14,
     textDecoration: 'none'   
-  } 
+  }, 
+  gradient:{
+    background:'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 36%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 100%)',
+    height:'70vh'
+  }
 }
 
 class MovieHighlightSingle  extends Component {
@@ -62,17 +67,20 @@ class MovieHighlightSingle  extends Component {
   render() {
     var style = {
       background:{
-        backgroundImage:`url(http://image.tmdb.org/t/p/w1000/${this.state.backdropImage})`
+        background:`url(http://image.tmdb.org/t/p/w1280/${this.state.backdropImage}) no-repeat right`,
+        height:'70vh'
       }
     }
     return (
-      <div style={style.background}>     
-        <div style={styles.MovieHighlightInfo}>
-          <h4 style={styles.movieTitle}>{this.state.title}</h4>
-          <span style={styles.watchNow}>watch now</span>
-          <p>{this.state.overview}</p>
-          <button onClick={this.playMovie.bind(this, this.props.movie.id)}>Play</button>
-          {/*<Button>+ My list</Button> */}     
+      <div style={style.background}>
+        <div style={styles.gradient}>
+          <div style={styles.MovieHighlightInfo}>
+            <h4 style={styles.movieTitle}>{this.state.title}</h4>
+            <span style={styles.watchNow}>watch now</span>
+            <p>{this.state.overview}</p>
+            <button onClick={this.playMovie.bind(this, this.props.movie.id)}>Play</button>
+            {/*<Button>+ My list</Button> */}     
+          </div>
         </div>
       </div>
     )            

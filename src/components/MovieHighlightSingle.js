@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 
 const styles = {
-  /*MovieHighlightSingle: {
-    width: 800,
-    height: 500,
-    margin: "0 auto",   
-    display: 'flex' 
-  },*/
   MovieHighlightInfo: {
     width: 300,    
     marginLeft: 30,

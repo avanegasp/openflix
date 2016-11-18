@@ -14,7 +14,7 @@ class MovieHightlights extends Component {
       slidesToScroll: 1
     }
     var moviesToMap = this.props.movies
-    var highlights = moviesToMap.slice(0,5);
+    var highlights = moviesToMap.slice(0,4);
     return (
         moviesToMap.length > 0 ? 
           <Slider {...settings}>

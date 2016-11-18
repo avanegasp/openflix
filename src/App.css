@@ -3,6 +3,11 @@ html {
   width: 100%;
   min-height: 100vh;
 }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .App{
   background-color: #333333;   
 } 
@@ -50,7 +55,6 @@ margin-left: 30px;
   flex: 1;
 }
 
-
 .buttonIngresa button {
   color: #EAEAEA;
   width: 200px;
@@ -83,9 +87,18 @@ margin-left: 30px;
 .slick-list{
   background-size: contain;
   margin-top: 100px;
-
 }
 
+.Dropdown-placeholder{
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px; 
+
+}
+.Dropdown-menu .Dropdown-option{
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px; 
+  background-color: #231F20;
+}
 .wrapper > * {
   margin: 0 auto;
   width: 90%;

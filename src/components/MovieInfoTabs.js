@@ -44,14 +44,11 @@ class MovieInfoTabs extends Component {
 	constructor(props){
 		super()
 		this.state = {
-			movie:{}
+			movie:{},
+			movieId:""
 		}
 	}
-	handleSelect(index, last) {
-    	console.log('Selected tab: ' + index + ', Last tab: ' + last);
-  	}
   	componentDidMount(){
-  		console.log(this.props)
   		getMovieInfo(this.props.thisMovie)
   		.then(res => {
   			this.setState({
@@ -63,7 +60,7 @@ class MovieInfoTabs extends Component {
   	  getMovieInfo(nextProps.thisMovie)
   	  .then(res => {
   	  	this.setState({
-  	  		movie: res.movie_results[0]
+  	  		movie: res.movie_results[0] 
   	  	})
   	  })
   	}
@@ -75,6 +72,7 @@ class MovieInfoTabs extends Component {
   		    backgroundSize: "cover"
   		  }
   		}
+  		console.log(this.state.movie)
     	return (
     		<div style={styles.movieInfoCont}>
 	    		<Tabs 
@@ -89,7 +87,7 @@ class MovieInfoTabs extends Component {
 			    		<Tab>Details</Tab>
 		    		</TabList>
 		    		<TabPanel className="tabPanel">
-		    			<MovieOverview movie={this.state.movie}/>		    			
+		    			<MovieOverview movie={this.state.movie} movieId={this.props.thisMovie}/>		    			
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
 		    			<MovieTrailer movie={this.state.movie}/>
@@ -104,17 +102,25 @@ class MovieInfoTabs extends Component {
 }
 
 class MovieOverview extends Component {
+	playMovie(movieId){
+      this.context.router.push(`/moviePlayer/${movieId}`)
+  	}
 	render(){
 		return (
 			<div style={styles.contentInfo}>
 				<div style={styles.movieInfoDescription}>					
 					<h3 style={styles.movieInfoTitle}>{this.props.movie.title}</h3>
 					<p>{this.props.movie.overview}</p>
+					<button onClick={this.playMovie.bind(this, this.props.movieId)}>Watch Now</button> 
 				</div>
 			</div>
 		)
 	}
 }
+
+MovieOverview.contextTypes={
+  router:React.PropTypes.object
+} 
 
 class MovieTrailer extends Component {
 	render(){		

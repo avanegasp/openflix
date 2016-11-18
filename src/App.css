@@ -169,7 +169,6 @@ button {
 .tabWrapper {
   display: flex;
   flex-direction: column-reverse;
-  border: '2px solid #FF931E';
 }
 
 .tabPanel {
@@ -178,19 +177,20 @@ button {
 }
 
 .tabNav {
-   text-align: center;
-   padding: 0; /*sobreescribre el padding default del ul*/
-   margin: 0; /*sobreescribre el margin default del ul*/   
+  background-color: #FF931E;
+  text-align: center;
+  padding: 0; /*sobreescribre el padding default del ul*/
+  margin: 0; /*sobreescribre el margin default del ul*/   
  }
 
 .tabNav li{
-  font-family: Georgia, serif;
   font-size: 20px;
   display: inline-block;
   height: 2em;
   line-height: 2em;
   padding: 0 5px;  
-  border: 2px solid #FF931E;
+  border-left: 1px solid #D1603D;
+  border-right: 1px solid #D1603D;
   background: #231F20;
 }
 
@@ -199,7 +199,7 @@ button {
 }
 
 .tabNav .ReactTabs__Tab--selected {
-  background-color: #FF931E;
+  background-color: #D1603D;
 }
 
 

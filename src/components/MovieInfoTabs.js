@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import '../App.css'
-import { getMovieInfo } from '../utils/getMovieInfo'
+import { getMovieInfo } from '../utils/getMovieInfo';
+import ReactPlayer from 'react-player';
 
 
 const styles = {
@@ -26,7 +27,7 @@ const styles = {
   	marginLeft: '20px'  	
   },
   videoWrapper:{
-  	textAlign: 'center',
+  	margin: '0 auto',
   	marginBotton: '10px'
   },
   posterBoxImg:{
@@ -90,10 +91,10 @@ class MovieInfoTabs extends Component {
 		    			<MovieOverview movie={this.state.movie} movieId={this.props.thisMovie}/>		    			
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
-		    			<MovieTrailer movie={this.state.movie}/>
+		    			<MovieTrailer movie={this.state.movie} trailer={this.props.thisTrailer}/>
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
-		    			<MovieDetails movie={this.state.movie}/>
+		    			<MovieDetails movie={this.state.movie} trailer={this.props.thisTrailer}/>
 		    		</TabPanel>
 	    		</Tabs>
 			</div>
@@ -126,12 +127,9 @@ class MovieTrailer extends Component {
 	render(){		
 		return(
 			<div>				
-				<h2 style={styles.movieInfoTitle}>{this.props.movie.title}</h2>
-				<div style={styles.videoWrapper}>
-					<iframe width="560" height="349" src="https://www.youtube.com/embed/nO_DIwuGBnA?rel=0&amp;showinfo=0" allowFullScreen></iframe>
-				</div>
+				<h2 style={styles.movieInfoTitle}>{this.props.movie.title}</h2>				
+			    <ReactPlayer  controls={true} url={this.props.trailer}  style={styles.videoWrapper}/>				
 			</div>
-
 		)
 	}
 }
@@ -144,7 +142,7 @@ class MovieDetails extends Component {
 					<h2 style={styles.movieInfoTitle}>{this.props.movie.title}</h2>
 					<p><strong  style={styles.movieInfoTitle}>Original Title: </strong>{this.props.movie.original_title}</p>
 					<p><strong style={styles.movieInfoTitle}>Popularity:</strong> {Math.ceil(this.props.movie.popularity)}</p>
-					<p><strong style={styles.movieInfoTitle}>Release Date:</strong> {this.props.movie.release_date}</p>
+					<p><strong style={styles.movieInfoTitle}>Release Date:</strong> {this.props.movie.release_date}</p>		
 				</div>
 			</div>
 			

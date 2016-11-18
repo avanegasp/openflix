@@ -48,15 +48,15 @@ class MovieCarousel extends Component {
     super()
     this.state = {
         childVisible: false,
-        currentMovieDetails: ''                   
+        currentMovieDetails: '',
+        currentMovieTrailer: ''
     }
   } 
-
-  onClick(movieId) { 
-    console.log("hola como estas")   
+  onClick(movieId, movieTrailer) {   
     this.setState({
       childVisible: true,
-      currentMovieDetails: movieId
+      currentMovieDetails: movieId,
+      currentMovieTrailer: movieTrailer
     });
   }
   render () {
@@ -69,13 +69,14 @@ class MovieCarousel extends Component {
         slidesToScroll:4
       }
       var moviesToMap = this.props.movies;
+      console.log(this.state.currentMovieDetails);
       return (
         <div className='carouselContainer'>
           {
             moviesToMap.length > 0 ? 
               <Slider {...settings}>
                 {moviesToMap.map((movie, index) => (
-                  <div onClick={this.onClick.bind(this, movie.id)} data-index={index} key={movie.id}>
+                  <div onClick={this.onClick.bind(this, movie.id, movie.trailer)} data-index={index} key={movie.id}>        
                     <MovieCard getMovieInfo={getMovieInfo} movie={movie}/>
                   </div>
                 ))}
@@ -83,7 +84,7 @@ class MovieCarousel extends Component {
           }
           {
             this.state.childVisible
-              ? <TabsCont thisMovie={this.state.currentMovieDetails}/>
+              ? <TabsCont thisMovie={this.state.currentMovieDetails} thisTrailer={this.state.currentMovieTrailer}/>
               : null
           } 
         </div>

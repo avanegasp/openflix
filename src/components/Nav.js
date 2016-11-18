@@ -21,7 +21,6 @@ class Nav extends Component {
 
 class UserNav extends Component {
 	_onSelect(tabSelected){
-		console.log('hola',tabSelected)
     if (tabSelected.value === "Cerrar sesión") {
       this.props.logout()
     }

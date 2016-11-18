@@ -105,7 +105,7 @@ background-size: cover; */
 .tabNav {
    text-align: center;
    padding: 0; /*sobreescribre el padding default del ul*/
-   margin: 0; /*sobreescribre el margin default del ul*/
+   margin: 0; /*sobreescribre el margin default del ul*/   
  }
 
 .tabNav li{
@@ -116,10 +116,11 @@ background-size: cover; */
   line-height: 2em;
   padding: 0 5px;  
   border: 2px solid #FF931E;
+  background: #231F20;
 }
 
 .tabNav li:hover {
-  background-color: rgba(143,76,0,0.5);  
+  background-color: #333;  
 }
 
 .tabNav .ReactTabs__Tab--selected {

@@ -51,8 +51,7 @@ class MovieCarousel extends Component {
         currentMovieDetails: ''                   
     }
   } 
-  onClick(movieId) { 
-    console.log("hola comoestas")   
+  onClick(movieId) {   
     this.setState({
       childVisible: true,
       currentMovieDetails: movieId

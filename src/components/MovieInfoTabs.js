@@ -6,20 +6,37 @@ import { getMovieInfo } from '../utils/getMovieInfo'
 
 const styles = {
   movieInfoCont: {   
-    color: 'white',
-    marginTop: '30px',
+    color: 'white',    
+    marginTop: '30px',    
     border: '2px solid #FF931E',
     padding: '0px'
   },
   contentInfo: {
   	marginTop: 0,
-  	backgroundColor: 'red',
-  	height: 300,
-  	maxWidth: 200
+  	background: 'rgba(15, 30, 38, 0.8)',
+  	height: '100%',
+  	padding: '10px',
+  	maxWidth: 300
   },
-  movieInfoDescription: {
-  	backgroundColor: 'black',
+  movieInfoDescription: {  		
   	maxWidth: '300px'
+  },
+  movieInfoTitle:{
+  	color: '#FF931E',
+  	marginLeft: '20px'  	
+  },
+  videoWrapper:{
+  	textAlign: 'center',
+  	marginBotton: '10px'
+  },
+  posterBoxImg:{
+  	float: 'right',
+  	margin: '30px', 	
+  	 	
+  },
+  posterImg:{  	
+  	width: '300px',
+  	height: '400px'
   }
 }
 
@@ -54,6 +71,7 @@ class MovieInfoTabs extends Component {
   		var style = {
   		  background:{
   		    backgroundImage:`url(http://image.tmdb.org/t/p/w1000/${this.state.movie.backdrop_path})`,
+  		    background: 'linear-gradient(to right, rgba(255,255,255,0), rgba(255,0,0,1))',
   		    backgroundSize: "cover"
   		  }
   		}
@@ -71,10 +89,10 @@ class MovieInfoTabs extends Component {
 			    		<Tab>Details</Tab>
 		    		</TabList>
 		    		<TabPanel className="tabPanel">
-		    			<MovieOverview movie={this.state.movie}/>
+		    			<MovieOverview movie={this.state.movie}/>		    			
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
-		    			<MovieTrailer/>
+		    			<MovieTrailer movie={this.state.movie}/>
 		    		</TabPanel>
 		    		<TabPanel className="tabPanel">
 		    			<MovieDetails movie={this.state.movie}/>
@@ -89,9 +107,8 @@ class MovieOverview extends Component {
 	render(){
 		return (
 			<div style={styles.contentInfo}>
-				<div style={styles.movieInfoDescription}>
-					<h3>Overview</h3>
-					<h4>{this.props.movie.title}</h4>
+				<div style={styles.movieInfoDescription}>					
+					<h3 style={styles.movieInfoTitle}>{this.props.movie.title}</h3>
 					<p>{this.props.movie.overview}</p>
 				</div>
 			</div>
@@ -100,9 +117,14 @@ class MovieOverview extends Component {
 }
 
 class MovieTrailer extends Component {
-	render(){
+	render(){		
 		return(
-			<div>Trailer</div>
+			<div>				
+				<h2 style={styles.movieInfoTitle}>{this.props.movie.title}</h2>
+				<div style={styles.videoWrapper}>
+					<iframe width="560" height="349" src="https://www.youtube.com/embed/nO_DIwuGBnA?rel=0&amp;showinfo=0" allowFullScreen></iframe>
+				</div>
+			</div>
 
 		)
 	}
@@ -111,7 +133,18 @@ class MovieTrailer extends Component {
 class MovieDetails extends Component {
 	render(){
 		return (
-			<div>Details</div>
+			<div>
+				<div style={styles.contentInfo}>
+					<h2 style={styles.movieInfoTitle}>{this.props.movie.title}</h2>
+					<p><strong  style={styles.movieInfoTitle}>Original Title: </strong>{this.props.movie.original_title}</p>
+					<p><strong style={styles.movieInfoTitle}>Popularity:</strong> {Math.ceil(this.props.movie.popularity)}</p>
+					<p><strong style={styles.movieInfoTitle}>Release Date:</strong> {this.props.movie.release_date}</p>
+				</div>
+				<div style={styles.posterBoxImg}>
+					<img src={`http://image.tmdb.org/t/p/w300/${this.props.movie.poster_path}`} alt={this.props.movie.title} style={styles.posterImg}/>
+				</div>
+			</div>
+			
 		)
 	}
 }

@@ -23,8 +23,8 @@ class App extends Component {
       loading: true,
       authenticated: false,
       user: {
-        displayName: "Anonymous",
-        imgUrl: "http://placekitten.com/112/112"
+        displayName: "User",
+        photoURL: "https://files.slack.com/files-tmb/T03KUKHBV-F33UAVDSN-e836c261e4/default-user_360.png"
       }
     }
   }
@@ -47,23 +47,26 @@ class App extends Component {
     this.context.router.push("/home")
 	}
   login(){
-  	base.authWithOAuthPopup('google', this.authHandler.bind(this));
-    
+  	base.authWithOAuthPopup('google', this.authHandler.bind(this));   
   }
   logout(){
   	base.unauth();
   	this.setState({
 	  	authenticated:false,
-	  	user:null
+	  	user: {
+        displayName: "User",
+        photoURL: "https://files.slack.com/files-tmb/T03KUKHBV-F33UAVDSN-e836c261e4/default-user_360.png"
+      }
 	  })
+    this.context.router.push("/")
   }
   render() {
     return (
       <div className="App">
         {this.props.location.pathname === `/moviePlayer/${this.props.params.movieId}` ? null : <Nav userNav={this.state.authenticated} name={this.state.user.displayName} imgUrl={this.state.user.photoURL} logout={this.logout.bind(this)} />}
         {this.props.children && React.cloneElement(this.props.children, {
-          movies: this.state.movies, login: this.login.bind(this)
-        })}
+          movies: this.state.movies, login: this.login.bind(this), logout:this.logout.bind(this)
+        })} 
       </div>
     );
   }

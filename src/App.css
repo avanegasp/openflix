@@ -29,7 +29,7 @@ button {
 }
 
 .navbar {
-  background-color: rgba(15, 30, 38, 0.8);
+  background-color: rgba(15, 30, 38, 0.2);
   display: flex;
   width: 100%;
   position: fixed;

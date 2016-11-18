@@ -6,8 +6,6 @@ import '../App.css';
 import Dropdown from 'react-dropdown'
 import '../css/dropdown.css';
 
-
-
 class Nav extends Component {
   render() {
     return (
@@ -17,7 +15,6 @@ class Nav extends Component {
         </span>
         {this.props.userNav ? <UserNav {...this.props}/> : null}
       </nav>
-      
     );
   }
 }
